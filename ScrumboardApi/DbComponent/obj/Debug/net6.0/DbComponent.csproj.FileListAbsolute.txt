@@ -1,0 +1,12 @@
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\DbComponent\bin\Debug\net6.0\DbComponent.deps.json
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\DbComponent\bin\Debug\net6.0\DbComponent.dll
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\DbComponent\bin\Debug\net6.0\DbComponent.pdb
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\DbComponent\obj\Debug\net6.0\DbComponent.csproj.AssemblyReference.cache
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\DbComponent\obj\Debug\net6.0\DbComponent.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\DbComponent\obj\Debug\net6.0\DbComponent.AssemblyInfoInputs.cache
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\DbComponent\obj\Debug\net6.0\DbComponent.AssemblyInfo.cs
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\DbComponent\obj\Debug\net6.0\DbComponent.csproj.CoreCompileInputs.cache
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\DbComponent\obj\Debug\net6.0\DbComponent.dll
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\DbComponent\obj\Debug\net6.0\refint\DbComponent.dll
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\DbComponent\obj\Debug\net6.0\DbComponent.pdb
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\DbComponent\obj\Debug\net6.0\ref\DbComponent.dll

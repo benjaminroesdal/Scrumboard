@@ -1,0 +1,47 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "TaskComponent/1.0.0": {
+        "dependencies": {
+          "BoardComponent": "1.0.0",
+          "UserComponent": "1.0.0"
+        },
+        "runtime": {
+          "TaskComponent.dll": {}
+        }
+      },
+      "BoardComponent/1.0.0": {
+        "runtime": {
+          "BoardComponent.dll": {}
+        }
+      },
+      "UserComponent/1.0.0": {
+        "runtime": {
+          "UserComponent.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TaskComponent/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BoardComponent/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UserComponent/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
