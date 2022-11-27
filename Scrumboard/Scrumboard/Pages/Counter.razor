@@ -8,6 +8,19 @@
 @inject BoardApiService apiService
 @inject IDialogService DialogService;
 
+<MudDialog @bind-IsVisible="visible" Options="dialogOptions">
+	<TitleContent>
+		<MudText Typo="Typo.h6">
+			<MudIcon Icon="@Icons.Material.Filled.Delete" Class="mr-3" /> Delete Task
+		</MudText>
+	</TitleContent>
+	<DialogContent>
+		<MudAlert>Are you sure you want to delete this task?</MudAlert>
+	</DialogContent>
+	<DialogActions>
+		<MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="Delete" Class="px-10">DELETE</MudButton>
+	</DialogActions>
+</MudDialog>
 <MudDropContainer T="BoardTask" @ref="_dropContainer" Items="@_tasks" ItemsSelector="@((item,column) => item.state.Name == column)" ItemDropped="TaskUpdated" Class="d-flex flex-row">
 	<ChildContent>
 		@foreach (var item in _sections)
@@ -18,20 +31,12 @@
 					<MudSpacer />
 					<MudMenu Icon="@Icons.Material.Rounded.MoreHoriz" AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight" ListClass="pa-2 d-flex flex-column" PopoverClass="mud-elevation-25">
 						<MudButton Size="Size.Small" Color="Color.Error" StartIcon="@Icons.Outlined.Delete" OnClick="@( () => DeleteSection(item))">Delete Section</MudButton>
-						<MudButton Size="Size.Small" Color="Color.Default" StartIcon="@Icons.Rounded.Edit">Rename Section</MudButton>
 					</MudMenu>
 				</MudToolBar>
 				<MudDropZone T="BoardTask" Identifier="@item.Name" Class="mud-height-full" />
-				@if (item.NewTaskOpen && @item.AcceptsTaskCreate)
+				@if (@item.AcceptsTaskCreate)
 				{
-					<MudPaper Elevation="25" Class="pa-2 rounded-lg">
-						<MudTextField @bind-Value="item.NewTaskName" Placeholder="New Task" DisableUnderLine="true" Margin="Margin.Dense" Class="mx-2 mt-n2"></MudTextField>
-						<MudButton OnClick="@(() => AddTask(item))" Size="Size.Small" Color="Color.Primary" FullWidth="true">Add Task</MudButton>
-					</MudPaper>
-				}
-				@if(@item.AcceptsTaskCreate && !item.NewTaskOpen)
-				{
-					<MudButton OnClick="@(() => item.NewTaskOpen = !item.NewTaskOpen)" StartIcon="@Icons.Filled.Add" FullWidth="true" Class="rounded-lg py-2">Add Task</MudButton>
+					<MudButton OnClick="@(() => OpenCreateTaskDialog(item))" StartIcon="@Icons.Filled.Add" FullWidth="true" Class="rounded-lg py-2">Add Task</MudButton>
 				}
 			</MudPaper>
 		}
@@ -42,104 +47,120 @@
 					<EditForm Model="@newStateModel" OnValidSubmit="OnValidSectionSubmit">
 						<DataAnnotationsValidator />
 						<MudTextField @bind-Value="newStateModel.Name" For="@(() => newStateModel.Name)" Placeholder="New Section" DisableUnderLine="true" Label="State Name"></MudTextField>
-                        <MudTextField @bind-Value="newStateModel.StatePriority" For="@(() => newStateModel.StatePriority)" Placeholder="Priority level" DisableUnderLine="true" Label="Priority"></MudTextField>
-                        <MudSwitch @bind-Checked="@newStateModel.AcceptsTaskCreate" Label="Allow Task Create" Color="Color.Primary" />
-                        <MudButton ButtonType="ButtonType.Submit" Size="Size.Small" Color="Color.Primary" FullWidth="true">Add Section</MudButton>
+						<MudTextField @bind-Value="newStateModel.StatePriority" For="@(() => newStateModel.StatePriority)" Placeholder="Priority level" DisableUnderLine="true" Label="Priority"></MudTextField>
+						<MudSwitch @bind-Checked="@newStateModel.AcceptsTaskCreate" Label="Allow Task Create" Color="Color.Primary" />
+						<MudButton ButtonType="ButtonType.Submit" Size="Size.Small" Color="Color.Primary" FullWidth="true">Add Section</MudButton>
 					</EditForm>
 				</MudPaper>
 			}
 			else
 			{
-			    <MudButton OnClick="OpenAddNewSection" Variant="Variant.Outlined" StartIcon="@Icons.Filled.Add" Color="Color.Primary" Class="rounded-lg py-2" FullWidth="true">Add Section</MudButton>
+				<MudButton OnClick="OpenAddNewSection" Variant="Variant.Outlined" StartIcon="@Icons.Filled.Add" Color="Color.Primary" Class="rounded-lg py-2" FullWidth="true">Add Section</MudButton>
 			}
 		</MudPaper>
 	</ChildContent>
-    <ItemRenderer>
-        <MudCard Elevation="25" Class="pa-4 rounded-lg my-3">
-            <MudCardContent>
-                <MudText>@context.name</MudText>
-                <MudText Typo="Typo.body2">@context.description</MudText>
+	<ItemRenderer>
+		<MudCard Elevation="25" Class="pa-4 rounded-lg my-3">
+			<MudCardContent>
+				<div class="d-flex flex-grow-1 gap-4">
+					<MudText>@context.name</MudText>
+					<MudFab DisableRipple="true" Color="Color.Error" StartIcon="@Icons.Material.Filled.Delete" Size="Size.Small" OnClick="() => DeleteDialog(context)" />
+				</div>
+				<MudText Typo="Typo.body2">@context.description</MudText>
 				@switch (@context.priority)
 				{
 					case Priority.Urgent:
 						<MudChip Color="Color.Error">@context.priority.ToString()</MudChip>
-					    break;
-				    case Priority.Highest:
+						break;
+					case Priority.Highest:
 						<MudChip Color="Color.Warning">@context.priority.ToString()</MudChip>
-				        break;
-				    case Priority.Medium:
+						break;
+					case Priority.Medium:
 						<MudChip Color="Color.Default">@context.priority.ToString()</MudChip>
-				        break;
+						break;
 				}
-            </MudCardContent>
-            <MudCardActions>
-                <MudButton DisableRipple="true" Variant="Variant.Text" @onclick="@((e) => OpenDialog(context))" Color="Color.Primary">Edit</MudButton>
-            </MudCardActions>
-        </MudCard>
-    </ItemRenderer>
+			</MudCardContent>
+			<MudCardActions>
+				<MudButton DisableRipple="true" Variant="Variant.Text" @onclick="@((e) => OpenEditDialog(context))" Color="Color.Primary">Edit</MudButton>
+			</MudCardActions>
+		</MudCard>
+	</ItemRenderer>
 </MudDropContainer>
 @code {
-	private MudDropContainer<BoardTask> _dropContainer;
+	private MudDropContainer<BoardTask>? _dropContainer;
 
 	private bool _addSectionOpen;
 	private string _Data;
 
-    private List<User> _users = new();
+	private List<User> _users = new();
 
-    private async Task OpenDialog(BoardTask task)
-    {
-        var parameters = new DialogParameters { ["task"] = task, ["users"] = _users, ["states"] = _sections};
-        var options = new DialogOptions { CloseOnEscapeKey = true };
-        var dialog = DialogService.Show<EditTask>(task.name, parameters, options);
-        var result = await dialog.Result;
-        if (result.Cancelled)
-            return;
-        var returnedTask = (BoardTask)result.Data;
-        _tasks.Remove(task);
+	private async Task OpenEditDialog(BoardTask task)
+	{
+		var parameters = new DialogParameters { ["task"] = task, ["users"] = _users, ["states"] = _sections};
+		var options = new DialogOptions { CloseOnEscapeKey = true };
+		var dialog = DialogService.Show<EditTask>(task.name, parameters, options);
+		var result = await dialog.Result;
+		if (result.Cancelled)
+			return;
+		var returnedTask = (BoardTask)result.Data;
+		_tasks.Remove(task);
 		_tasks.Add(returnedTask);
-		_dropContainer.Refresh();
-    }
+		_dropContainer?.Refresh();
+	}
+
+	private async Task OpenCreateTaskDialog(State state)
+	{
+		var parameters = new DialogParameters { ["users"] = _users, ["states"] = _sections, ["selectedState"] = state };
+		var options = new DialogOptions { CloseOnEscapeKey = true };
+		var dialog = DialogService.Show<CreateTask>("New Task", parameters, options);
+		var result = await dialog.Result;
+		if (result.Cancelled)
+			return;
+		var returnedTask = (BoardTask)result.Data;
+		_tasks.Add(returnedTask);
+		_dropContainer?.Refresh();
+	}
 
 	protected override async Task OnInitializedAsync()
 	{
 		var data = await apiService.GetSections();
-	    var tasks = await apiService.GetTasks();
-	    var users = await apiService.GetUsers();
+		var tasks = await apiService.GetTasks();
+		var users = await apiService.GetUsers();
 		_users.AddRange(users);
 		_tasks.AddRange(tasks);
 		_sections.AddRange(data);
 	}
 
-    /* handling board events */
+	/* handling board events */
 	private async Task TaskUpdated(MudItemDropInfo<BoardTask> info)
 	{
 		info.Item.StateID = _sections.FirstOrDefault(e => e.Name == info.DropzoneIdentifier).Id;
-	    info.Item.state.Name = info.DropzoneIdentifier;
-	    await apiService.UpdateTask(info.Item);
+		info.Item.state.Name = info.DropzoneIdentifier;
+		await apiService.UpdateTask(info.Item);
 	}
 
-    public async Task UpdateTask(BoardTask task)
-    {
-        await apiService.UpdateTask(task);
-    }
+	public async Task UpdateTask(BoardTask task)
+	{
+		await apiService.UpdateTask(task);
+	}
 
-    /* Setup for board  */
+	/* Setup for board  */
 	private List<State> _sections = new()
-		{
-		};
+	{
+	};
 
-    private List<BoardTask> _tasks = new()
-		{
-		};
+	private List<BoardTask> _tasks = new()
+	{
+	};
 
 	State newStateModel = new State();
 
-    private async Task OnValidSectionSubmit(EditContext context)
-    {
-        await apiService.CreateState(newStateModel);
+	private async Task OnValidSectionSubmit(EditContext context)
+	{
+		await apiService.CreateState(newStateModel);
 		_sections.Add(newStateModel);
-        _sections = _sections.OrderByDescending(e => e.StatePriority).ToList();
-        newStateModel = new State();
+		_sections = _sections.OrderByDescending(e => e.StatePriority).ToList();
+		newStateModel = new State();
 		_addSectionOpen = false;
 	}
 
@@ -150,7 +171,7 @@
 
 	private async Task AddTask(State section)
 	{
-	    var task = new BoardTask()
+		var task = new BoardTask()
 	    {
 	        name = section.NewTaskName,
 	        StateID = section.Id,
@@ -166,7 +187,7 @@
 		_tasks.Add(task);
 		section.NewTaskName = string.Empty;
 		section.NewTaskOpen = false;
-	    await apiService.CreateTask(task);
+		await apiService.CreateTask(task);
 		_dropContainer.Refresh();
 	}
 
@@ -194,4 +215,21 @@
 			}
 		}
 	}
+
+	private async void Delete()
+	{
+		visible = false;
+		await apiService.DeleteTask(taskDelete);
+		_tasks.Remove(taskDelete);
+		_dropContainer.Refresh();
+	}
+
+	private BoardTask taskDelete;
+	private bool visible = false;
+	private void DeleteDialog(BoardTask task)
+	{
+		taskDelete = task;
+		visible = true;
+	}
+	private DialogOptions dialogOptions = new() { FullWidth = true };
 }

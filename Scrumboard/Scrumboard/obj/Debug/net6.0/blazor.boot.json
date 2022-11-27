@@ -198,16 +198,16 @@
       "mscorlib.dll": "sha256-cx\/3nJhFns3tZhQNQOyiRyKJESKxOjLVufzWnri6KSA=",
       "netstandard.dll": "sha256-yWufW5W4SSfjocBcWTEDqnFwTd\/VYtLMc2Y9mPmlggc=",
       "System.Private.CoreLib.dll": "sha256-H009wzPwRoDZlwvpN4KLCsUwN7Y1AmjKB3PIEHA7ObQ=",
-      "Scrumboard.dll": "sha256-r4tWgVspA87X99l+YG06V4hrznMWTd7iKaJErmK83eA="
+      "Scrumboard.dll": "sha256-\/7r81uq0mzcXuf9UmDUiRtmrw7ZaJBUUevU1omQZq8M="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "Scrumboard.pdb": "sha256-tVgH92zLH8c29GBAEzLqV\/L2tWy2+8nu0EEO8+v7\/uo="
+      "Scrumboard.pdb": "sha256-Zi+NJQS1Q9t6n1UUuu3P39eqSRqY5ILCETzqdMf5ASE="
     },
     "runtime": {
-      "dotnet.6.0.11.t9beqiowsu.js": "sha256-F30V+6jU3jwJYFZoLuwMAqzTiOXu6q7zGgOdjYBofDI=",
+      "dotnet.6.0.11.hr6guuu5y9.js": "sha256-F30V+6jU3jwJYFZoLuwMAqzTiOXu6q7zGgOdjYBofDI=",
       "dotnet.timezones.blat": "sha256-Lv3h5dH3BV8JIZagipVCG0N\/oBjQF6jXUUWR6shkvws=",
       "dotnet.wasm": "sha256-uv9ggGYjOv1l7PZUHHHlIba88MjDiFYvp8OqO2qQGxY=",
       "icudt.dat": "sha256-Zuq0dWAsBm6\/2lSOsz7+H9PvFaRn61KIXHMMwXDfvyE=",

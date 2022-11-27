@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using DbComponent.Context;
@@ -37,7 +38,7 @@ namespace DbComponent
 			return listResult;
 		}
 
-		public async Task CreateTask(BoardTaskModel task)
+		public async Task<BoardTaskModel> CreateTask(BoardTaskModel task)
 		{
 			using (var context = _context)
 			{
@@ -46,6 +47,8 @@ namespace DbComponent
 				var saveResult = await context.SaveChangesAsync();
 				if (saveResult == 0) 
 					throw new Exception("Nothing was saved to db");
+				var dbTask = await context.Tasks.Include(e => e.Reporter).Include(e => e.Assignee).Include(e => e.State).FirstOrDefaultAsync(e => e.TaskID == dao.TaskID);
+				return dbTask.CreateModel();
 			}
 		}
 
@@ -91,5 +94,17 @@ namespace DbComponent
 				return context.Users.ToList().CreateModelList();
 			}
 		}
-	}
+
+        public async Task DeteleTask(BoardTaskModel task)
+        {
+            using (var context = _context)
+            {
+				var dao = task.CreateDao();
+				context.Tasks.Remove(dao);
+				var result = await context.SaveChangesAsync();
+                if (result == 0)
+                    throw new Exception("Nothing was saved to db");
+            }
+        }
+    }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0fJMb9OL4QrVtWilqMXY/X38XotnJbZAP2y1hsv6EoIhXN9MRgM6a4DtChI3VfdWKtRO3tENokTMTrqk+K49aw==",
+  "dgSpecHash": "UzqqTIvoMOn9s65xPJWn/kWLOnuSs0EAfqpCk43kBnIHTavho5D6lF/Q9ZPAEMQkZXYMdgcC7k9SE5T0vvSS+g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj",
+  "projectFilePath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

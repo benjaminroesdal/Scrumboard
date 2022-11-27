@@ -1654,3 +1654,11 @@ C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\bin\
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\bin\Debug\net6.0\wwwroot\_framework\RestSharp.dll.gz
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\bin\Debug\net6.0\RestSharp.dll
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\obj\Debug\net6.0\build-gz\8CZ0MCbV.gz
+C:\Users\benja\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\bin\Debug\net6.0\wwwroot\_framework\MudBlazor.dll
+C:\Users\benja\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\bin\Debug\net6.0\wwwroot\_framework\RestSharp.dll
+C:\Users\benja\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\bin\Debug\net6.0\wwwroot\_framework\RestSharp.dll.gz
+C:\Users\benja\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\bin\Debug\net6.0\wwwroot\_framework\MudBlazor.dll.gz
+C:\Users\benja\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\bin\Debug\net6.0\MudBlazor.dll
+C:\Users\benja\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\bin\Debug\net6.0\RestSharp.dll
+C:\Users\benja\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\obj\Debug\net6.0\build-gz\ayuX7kBB.gz
+C:\Users\benja\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\obj\Debug\net6.0\build-gz\1fskB1Xo.gz

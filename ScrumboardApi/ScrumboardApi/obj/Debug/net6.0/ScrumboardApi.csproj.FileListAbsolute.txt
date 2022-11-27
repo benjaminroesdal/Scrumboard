@@ -149,3 +149,8 @@ C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardAp
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\System.Web.Http.dll
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\SimpleInjector.Integration.WebApi.dll
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\System.Web.Http.dll
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\SimpleInjector.dll
+C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\SimpleInjector.Integration.WebApi.dll

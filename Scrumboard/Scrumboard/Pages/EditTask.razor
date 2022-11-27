@@ -38,7 +38,7 @@
     </DialogContent>
     <DialogActions>
         <MudButton OnClick="Cancel">Cancel</MudButton>
-        <MudButton Color="Color.Error" OnClick="SaveChanges">Save Changes</MudButton>
+        <MudButton Color="Color.Primary" OnClick="SaveChanges">Save Changes</MudButton>
     </DialogActions>
 </MudDialog>
 
@@ -56,6 +56,12 @@
     private void Cancel()
     {
         MudDialog.Cancel();
+    }
+
+    private async void Delete()
+    {
+        await apiService.DeleteTask(task);
+        MudDialog.Close(DialogResult.Ok("Delete"));
     }
 
     private async Task SaveChanges()

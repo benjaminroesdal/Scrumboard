@@ -1877,25 +1877,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Benjamin Roesdal\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\benja\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\Scrumboard\\Scrumboard\\Scrumboard.csproj",
+      "projectUniqueName": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\Scrumboard\\Scrumboard\\Scrumboard.csproj",
       "projectName": "Scrumboard",
-      "projectPath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\Scrumboard\\Scrumboard\\Scrumboard.csproj",
-      "packagesPath": "C:\\Users\\Benjamin Roesdal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\Scrumboard\\Scrumboard\\obj\\",
+      "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\Scrumboard\\Scrumboard\\Scrumboard.csproj",
+      "packagesPath": "C:\\Users\\benja\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\Scrumboard\\Scrumboard\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Benjamin Roesdal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\benja\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1905,10 +1903,7 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\Users\\Benjamin Roesdal\\Desktop\\DevNugets": {},
-        "C:\\workspace\\.NoitsoNugets": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://www.myget.org/F/noitso/auth/ab8a6c89-6b8b-47b2-a088-6eedc01f11af/api/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {

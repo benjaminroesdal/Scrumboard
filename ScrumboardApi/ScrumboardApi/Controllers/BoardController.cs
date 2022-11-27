@@ -38,8 +38,8 @@ namespace ScrumboardApi.Controllers
 		[HttpPost("CreateTask")]
 		public async Task<IActionResult> CreateTask([FromBody]BoardTaskModel model)
 		{
-			await _dbService.CreateTask(model);
-			return Ok();
+			var result = await _dbService.CreateTask(model);
+			return Ok(result);
 		}
 
 		[HttpGet("GetTasks")]
@@ -54,5 +54,12 @@ namespace ScrumboardApi.Controllers
 			await _dbService.UpdateTask(model);
 			return Ok();
 		}
-	}
+
+        [HttpPost("DeleteTask")]
+        public async Task<IActionResult> DeleteTask([FromBody] BoardTaskModel task)
+        {
+            await _dbService.DeteleTask(task);
+            return Ok();
+        }
+    }
 }

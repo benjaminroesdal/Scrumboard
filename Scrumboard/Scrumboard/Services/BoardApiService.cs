@@ -32,15 +32,21 @@ namespace Scrumboard.Services
             return tasks;
         }
 
-        public async Task CreateTask(BoardTask task)
+        public async Task<BoardTask> CreateTask(BoardTask task)
         {
-            await _client.PostAsJsonAsync<BoardTask>("https://localhost:7209/api/Board/CreateTask", task);
-
+            var result = await _client.PostAsJsonAsync<BoardTask>("https://localhost:7209/api/Board/CreateTask", task);
+            var objRes = await result.Content.ReadFromJsonAsync<BoardTask>();
+            return objRes;
         }
 
         public async Task UpdateTask(BoardTask task)
         {
             await _client.PostAsJsonAsync<BoardTask>("https://localhost:7209/api/Board/UpdateTask", task);
+        }
+
+        public async Task DeleteTask(BoardTask task)
+        {
+            await _client.PostAsJsonAsync("https://localhost:7209/api/Board/DeleteTask", task);
         }
 
         public async Task CreateState(State state)

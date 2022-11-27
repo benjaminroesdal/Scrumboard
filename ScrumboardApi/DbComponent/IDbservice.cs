@@ -12,9 +12,12 @@ namespace DbComponent
 	{
         Task CreateState(StateModel state);
 		List<State> GetStates();
-		Task CreateTask(BoardTaskModel task);
+		Task<BoardTaskModel> CreateTask(BoardTaskModel task);
 		List<UserModel> GetUsers();
 		List<BoardTaskModel> GetTasks();
 		Task UpdateTask(BoardTaskModel task);
+		Task DeteleTask(BoardTaskModel task);
+
+
 	}
 }
