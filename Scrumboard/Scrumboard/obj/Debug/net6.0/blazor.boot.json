@@ -29,6 +29,8 @@
       "Microsoft.Extensions.Primitives.dll": "sha256-jOmoWSfsdQexH\/6QCA56gR1RMEqeix2iDDUBWbpAOQI=",
       "Microsoft.JSInterop.dll": "sha256-Q4f+LWDtWpXnnYHUde+5rI1mzDPNsZKlAw2vLmj7x1I=",
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-o6JgCcWyug2MjyXwx54FHRaCf1DjpJzEkG2GKhlSyL4=",
+      "MudBlazor.dll": "sha256-5rmjg4MYJI4wzVniRrkHyDh1PqyWUu5rWQHfcP02300=",
+      "RestSharp.dll": "sha256-NKhnQCUv8OJZ38AGqrkDsiOrqHErJdPuF5MiYz\/oKIA=",
       "System.IO.Pipelines.dll": "sha256-6+E55JXedimdw1c1bDtVg4K7XuWjVWVTifH8QpfzXSY=",
       "Microsoft.CSharp.dll": "sha256-ZScUDIiTxo1dQUE6uip4qB29zPhkN4IpLP8YotBXZKA=",
       "Microsoft.VisualBasic.Core.dll": "sha256-GO2Nim3i77UgTSYVu2OkMRHAiuFQQFGvX93YzIyu7zg=",
@@ -196,16 +198,16 @@
       "mscorlib.dll": "sha256-cx\/3nJhFns3tZhQNQOyiRyKJESKxOjLVufzWnri6KSA=",
       "netstandard.dll": "sha256-yWufW5W4SSfjocBcWTEDqnFwTd\/VYtLMc2Y9mPmlggc=",
       "System.Private.CoreLib.dll": "sha256-H009wzPwRoDZlwvpN4KLCsUwN7Y1AmjKB3PIEHA7ObQ=",
-      "Scrumboard.dll": "sha256-DC5Kq9IxRpbdZEUj84ex+cykqgiJ+7LVlyNqXVDy6GI="
+      "Scrumboard.dll": "sha256-r4tWgVspA87X99l+YG06V4hrznMWTd7iKaJErmK83eA="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "Scrumboard.pdb": "sha256-LZD5gdRxRDYvGX\/fhNY5YBAw4Yrhx9xIzaUY88\/6DtM="
+      "Scrumboard.pdb": "sha256-tVgH92zLH8c29GBAEzLqV\/L2tWy2+8nu0EEO8+v7\/uo="
     },
     "runtime": {
-      "dotnet.6.0.11.hr6guuu5y9.js": "sha256-F30V+6jU3jwJYFZoLuwMAqzTiOXu6q7zGgOdjYBofDI=",
+      "dotnet.6.0.11.t9beqiowsu.js": "sha256-F30V+6jU3jwJYFZoLuwMAqzTiOXu6q7zGgOdjYBofDI=",
       "dotnet.timezones.blat": "sha256-Lv3h5dH3BV8JIZagipVCG0N\/oBjQF6jXUUWR6shkvws=",
       "dotnet.wasm": "sha256-uv9ggGYjOv1l7PZUHHHlIba88MjDiFYvp8OqO2qQGxY=",
       "icudt.dat": "sha256-Zuq0dWAsBm6\/2lSOsz7+H9PvFaRn61KIXHMMwXDfvyE=",

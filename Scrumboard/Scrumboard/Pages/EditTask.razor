@@ -1,0 +1,93 @@
+﻿@using Scrumboard.Models
+@using Scrumboard.Services
+@inject BoardApiService apiService;
+
+<MudDialog>
+    <TitleContent>
+        <MudText Typo="Typo.h6">
+            @task.name
+        </MudText>
+    </TitleContent>
+    <DialogContent>
+        <MudTextField @bind-Value="@task.name" Label="Task Name" ReadOnly="false" />
+        <MudTextField @bind-Value="@task.description" Label="Description" ReadOnly="false" />
+        <MudSelect @bind-Value="reporter" Label="@task.reporter.userName" AnchorOrigin="Origin.BottomCenter">
+            @foreach (var item in users)
+            {
+                <MudSelectItem Value="@(item)">@item.userName</MudSelectItem>
+            }
+        </MudSelect>
+        <MudSelect @bind-Value="assignee" Label="@task.assignee.userName" AnchorOrigin="Origin.BottomCenter">
+            @foreach (var item in users)
+            {
+                <MudSelectItem Value="@(item)">@item.userName</MudSelectItem>
+            }
+        </MudSelect>
+        <MudSelect @bind-Value="task.priority" Label="Priority" AnchorOrigin="Origin.BottomCenter">
+            <MudSelectItem Value="@Priority.Medium">@Priority.Medium</MudSelectItem>
+            <MudSelectItem Value="@Priority.Highest">@Priority.Highest</MudSelectItem>
+            <MudSelectItem Value="@Priority.Urgent">@Priority.Urgent</MudSelectItem>
+        </MudSelect>
+        <MudTextField @bind-Value="@task.originalEstimate" Label="Estimate" ReadOnly="false" />
+        <MudSelect @bind-Value="state" Label="@task.state.Name" AnchorOrigin="Origin.BottomCenter">
+            @foreach (var item in states)
+            {
+                <MudSelectItem Value="@(item)">@item.Name</MudSelectItem>
+            }
+        </MudSelect>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Error" OnClick="SaveChanges">Save Changes</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    [Parameter] public BoardTask task { get; set; } = new BoardTask();
+    [Parameter] public List<User> users { get; set; } = new List<User>();
+    [Parameter] public List<State> states { get; set; } = new List<State>();
+
+    private User reporter;
+    private User assignee;
+    private State state;
+
+    private void Cancel()
+    {
+        MudDialog.Cancel();
+    }
+
+    private async Task SaveChanges()
+    {
+        if(reporter != null)
+            SetTaskReporterOnSelect();
+        if(assignee != null)
+            SetTaskAssigneeOnSelect();
+        if(state != null)
+            SetTaskStateOnSelect();
+    //In a real world scenario this bool would probably be a service to delete the item from api/database
+        await apiService.UpdateTask(task);
+        MudDialog.Close(DialogResult.Ok(task));
+    }
+
+    private void SetTaskReporterOnSelect()
+    {
+        task.reporter.userName = reporter.userName;
+        task.reporter.id = reporter.id;
+        task.ReporterID = reporter.id;
+    }
+
+    private void SetTaskAssigneeOnSelect()
+    {
+        task.assignee.userName = assignee.userName;
+        task.assignee.id = assignee.id;
+        task.AssigneeID = assignee.id;
+    }
+
+    private void SetTaskStateOnSelect()
+    {
+        task.state = state;
+        task.StateID = state.Id;
+    }
+}

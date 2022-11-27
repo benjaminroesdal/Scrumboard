@@ -1,7 +1,10 @@
+using DbComponent;
+using DbComponent.Context;
 using DbComponent.DbModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using ScrumboardApi.Context;
+using SimpleInjector;
+using SimpleInjector.Lifestyles;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,31 +15,26 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ScrumBoardContext>(e => e.UseSqlServer("Server=localhost;Database=ScrumBoard;Trusted_Connection=True;"));
+builder.Services.AddScoped<IDbservice, DbService>(sp =>
+{
+	var ctx = sp.GetService<ScrumBoardContext>();
+	return new DbService(ctx);
+});
 
 var app = builder.Build();
 
 CreateDbIfNotExists(app.Services);
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-using (var scope = app.Services.CreateScope())
-{
-    var ctx = scope.ServiceProvider.GetRequiredService<ScrumBoardContext>();
-    var states = ctx.States.Where(e => e.Name == "Todo");
-    var user = new BoardTask()
-    {
-
-    };
-    ctx.AddRange(user);
-    ctx.SaveChanges();
-}
-
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseCors(e => e.AllowAnyOrigin().AllowAnyHeader());
 
 app.MapControllers();
 
