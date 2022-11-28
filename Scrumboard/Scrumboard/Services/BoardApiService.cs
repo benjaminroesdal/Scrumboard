@@ -1,4 +1,5 @@
 ﻿using System.Net.Http.Json;
+using Microsoft.JSInterop;
 using RestSharp;
 using Scrumboard.Models;
 using static System.Net.WebRequestMethods;
@@ -53,5 +54,5 @@ namespace Scrumboard.Services
         {
             await _client.PostAsJsonAsync("https://localhost:7209/api/Board/CreateState", state);
         }
-    }
+	}
 }
