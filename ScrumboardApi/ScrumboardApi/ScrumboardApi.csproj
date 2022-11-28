@@ -10,16 +10,12 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.11" />
-    <PackageReference Include="SimpleInjector" Version="5.4.1" />
-    <PackageReference Include="SimpleInjector.Integration.WebApi" Version="5.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BoardComponent\BoardComponent.csproj" />
     <ProjectReference Include="..\DbComponent\DbComponent.csproj" />
-    <ProjectReference Include="..\TaskComponent\TaskComponent.csproj" />
-    <ProjectReference Include="..\UserComponent\UserComponent.csproj" />
   </ItemGroup>
 
 </Project>

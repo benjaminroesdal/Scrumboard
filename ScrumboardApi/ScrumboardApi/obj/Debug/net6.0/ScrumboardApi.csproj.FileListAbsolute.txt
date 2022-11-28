@@ -117,12 +117,8 @@ C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardAp
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\BoardComponent.dll
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\DbComponent.dll
-C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\TaskComponent.dll
-C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\UserComponent.dll
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\BoardComponent.pdb
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\DbComponent.pdb
-C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\TaskComponent.pdb
-C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\UserComponent.pdb
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\obj\Debug\net6.0\ScrumboardApi.csproj.AssemblyReference.cache
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\obj\Debug\net6.0\ScrumboardApi.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\obj\Debug\net6.0\ScrumboardApi.AssemblyInfoInputs.cache
@@ -144,11 +140,6 @@ C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardAp
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\obj\Debug\net6.0\ScrumboardApi.pdb
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\obj\Debug\net6.0\ScrumboardApi.genruntimeconfig.cache
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\obj\Debug\net6.0\ref\ScrumboardApi.dll
-C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\SimpleInjector.dll
-C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\System.Net.Http.Formatting.dll
-C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\System.Web.Http.dll
-C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\SimpleInjector.Integration.WebApi.dll
 C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\System.Net.Http.Formatting.dll
 C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\System.Web.Http.dll
 C:\Users\benja\Documents\GitHub\Scrumboard\ScrumboardApi\ScrumboardApi\bin\Debug\net6.0\Newtonsoft.Json.dll

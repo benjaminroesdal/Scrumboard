@@ -1,10 +1,7 @@
+using BoardComponent;
 using DbComponent;
 using DbComponent.Context;
-using DbComponent.DbModels;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using SimpleInjector;
-using SimpleInjector.Lifestyles;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +17,7 @@ builder.Services.AddScoped<IDbservice, DbService>(sp =>
 	var ctx = sp.GetService<ScrumBoardContext>();
 	return new DbService(ctx);
 });
-
+builder.Services.AddScoped<IBoardService, BoardService>();
 var app = builder.Build();
 
 CreateDbIfNotExists(app.Services);

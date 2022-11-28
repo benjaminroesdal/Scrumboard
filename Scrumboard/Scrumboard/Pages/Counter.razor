@@ -169,29 +169,7 @@
 		_addSectionOpen = true;
 	}
 
-	private async Task AddTask(State section)
-	{
-		var task = new BoardTask()
-	    {
-	        name = section.NewTaskName,
-	        StateID = section.Id,
-	        description = "mdskaldmsalk",
-	        state = new State(){Id = section.Id, Name = section.Name},
-	        AssigneeID = 2,
-	        ReporterID = 2,
-			assignee = _users.FirstOrDefault(e => e.id == 2),
-			reporter = _users.FirstOrDefault(e => e.id == 2),
-			priority = Priority.Highest,
-			originalEstimate = 20
-	    };
-		_tasks.Add(task);
-		section.NewTaskName = string.Empty;
-		section.NewTaskOpen = false;
-		await apiService.CreateTask(task);
-		_dropContainer.Refresh();
-	}
-
-	private void DeleteSection(State section)
+    private void DeleteSection(State section)
 	{
 		if (_sections.Count == 1)
 		{

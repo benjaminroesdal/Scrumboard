@@ -1,9 +1,9 @@
-﻿using System;
+﻿using DbComponent.DbModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DbComponent.DbModels;
 
 namespace DbComponent.Models
 {
@@ -30,6 +30,14 @@ namespace DbComponent.Models
 		public static StateModel CreateModel(State task)
 		{
 			return new StateModel(task);
+		}
+	}
+
+	public static class StateModelExtensions
+	{
+		public static StateModel CreateModel(this State dao)
+		{
+			return StateModel.CreateModel(dao);
 		}
 	}
 }

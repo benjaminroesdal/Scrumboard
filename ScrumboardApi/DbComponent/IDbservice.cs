@@ -10,13 +10,13 @@ namespace DbComponent
 {
 	public interface IDbservice
 	{
-        Task CreateState(StateModel state);
+        Task<State> CreateState(State state);
 		List<State> GetStates();
-		Task<BoardTaskModel> CreateTask(BoardTaskModel task);
-		List<UserModel> GetUsers();
-		List<BoardTaskModel> GetTasks();
-		Task UpdateTask(BoardTaskModel task);
-		Task DeteleTask(BoardTaskModel task);
+		Task<BoardTask> CreateTask(BoardTask task);
+		List<User> GetUsers();
+		List<BoardTask> GetTasks();
+		Task UpdateTask(BoardTask task);
+		Task DeteleTask(BoardTask task);
 
 
 	}

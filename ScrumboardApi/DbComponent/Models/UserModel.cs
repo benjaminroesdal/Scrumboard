@@ -1,9 +1,9 @@
-﻿using System;
+﻿using DbComponent.DbModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DbComponent.DbModels;
 
 namespace DbComponent.Models
 {
@@ -28,16 +28,16 @@ namespace DbComponent.Models
 		}
 	}
 
-    public static class UserModelExtensions
-    {
-        public static List<UserModel> CreateModelList(this ICollection<User> modelList)
-        {
-            return modelList.Select(CreateDao).ToList();
-        }
+	public static class UserModelExtensions
+	{
+		public static List<UserModel> CreateModelList(this ICollection<User> modelList)
+		{
+			return modelList.Select(CreateDao).ToList();
+		}
 
-        public static UserModel CreateDao(this User model)
-        {
-            return UserModel.CreateModel(model);
-        }
-    }
+		public static UserModel CreateDao(this User model)
+		{
+			return UserModel.CreateModel(model);
+		}
+	}
 }

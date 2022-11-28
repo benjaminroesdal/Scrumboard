@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using DbComponent.Context;
+﻿using DbComponent.Context;
 using DbComponent.DbModels;
 using DbComponent.Models;
 using Microsoft.EntityFrameworkCore;
@@ -19,51 +13,43 @@ namespace DbComponent
 			_context = context;
 		}
 
-		public async Task CreateState(StateModel state)
+		public async Task<State> CreateState(State state)
 		{
-			using (var context = _context)
-			{
-				var dao = state.CreateDao();
-                context.Add(dao);
-				var result = await context.SaveChangesAsync();
-				if (result == 0)
-					throw new Exception("Nothing was saved to db");
-			}
+			_context.Add(state);
+			var result = await _context.SaveChangesAsync();
+
+			if (result == 0)
+				throw new Exception("Nothing was saved to db");
+			return state;
 		}
 
         public List<State> GetStates()
 		{
-			using var context = _context;
-			var listResult = context.States.OrderByDescending(e => e.StatePriority).ToList();
+			var listResult = _context.States.OrderByDescending(e => e.StatePriority).ToList();
 			return listResult;
 		}
 
-		public async Task<BoardTaskModel> CreateTask(BoardTaskModel task)
+		public async Task<BoardTask> CreateTask(BoardTask task)
 		{
-			using (var context = _context)
-			{
-				var dao = task.CreateDao();
-				await context.Tasks.AddAsync(dao);
-				var saveResult = await context.SaveChangesAsync();
-				if (saveResult == 0) 
-					throw new Exception("Nothing was saved to db");
-				var dbTask = await context.Tasks.Include(e => e.Reporter).Include(e => e.Assignee).Include(e => e.State).FirstOrDefaultAsync(e => e.TaskID == dao.TaskID);
-				return dbTask.CreateModel();
-			}
+			await _context.Tasks.AddAsync(task);
+			var saveResult = await _context.SaveChangesAsync();
+			if (saveResult == 0)
+				throw new Exception("Nothing was saved to db");
+			var dbTask = await _context.Tasks.Include(e => e.Reporter)
+				.Include(e => e.Assignee)
+				.Include(e => e.State)
+				.FirstOrDefaultAsync(e => e.TaskID == task.TaskID);
+			return dbTask;
 		}
 
-		public async Task UpdateTask(BoardTaskModel task)
+		public async Task UpdateTask(BoardTask task)
 		{
-			var dao = task.CreateDao();
-			using (var context = _context)
-			{
-				var currentTask = context.Tasks.FirstOrDefault(e => e.TaskID == dao.TaskID);
-				MapChanged(dao, currentTask);
-				context.Update(currentTask);
-				var result = await context.SaveChangesAsync();
-				if (result == 0)
-					throw new Exception("Nothing was saved to db");
-			}
+			var currentTask = _context.Tasks.FirstOrDefault(e => e.TaskID == task.TaskID);
+			MapChanged(task, currentTask);
+			_context.Update(currentTask);
+			var result = await _context.SaveChangesAsync();
+			if (result == 0)
+				throw new Exception("Nothing was saved to db");
 		}
 
 		public void MapChanged(BoardTask updatedTask, BoardTask currentTask)
@@ -77,34 +63,23 @@ namespace DbComponent
 			currentTask.StateID = updatedTask.StateID;
 		}
 
-		public List<BoardTaskModel> GetTasks()
+		public List<BoardTask> GetTasks()
 		{
-			using (var context = _context)
-			{
-				var result = context.Tasks.Include("State").Include("Assignee").Include("Reporter").ToList();
-				var temp = result.CreateModelList();
-				return temp;
-			}
+			var result = _context.Tasks.Include("State").Include("Assignee").Include("Reporter").ToList();
+			return result;
 		}
 
-		public List<UserModel> GetUsers()
+		public List<User> GetUsers()
 		{
-			using (var context = _context)
-			{
-				return context.Users.ToList().CreateModelList();
-			}
+			return _context.Users.ToList();
 		}
 
-        public async Task DeteleTask(BoardTaskModel task)
+		public async Task DeteleTask(BoardTask task)
         {
-            using (var context = _context)
-            {
-				var dao = task.CreateDao();
-				context.Tasks.Remove(dao);
-				var result = await context.SaveChangesAsync();
-                if (result == 0)
-                    throw new Exception("Nothing was saved to db");
-            }
-        }
+	        _context.Tasks.Remove(task);
+	        var result = await _context.SaveChangesAsync();
+	        if (result == 0)
+		        throw new Exception("Nothing was saved to db");
+		}
     }
 }

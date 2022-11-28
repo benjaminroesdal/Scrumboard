@@ -2,39 +2,6 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "Microsoft.AspNet.WebApi.Client/4.0.20710": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Net.Http": "[2.0.20710, 2.1.0)",
-          "Newtonsoft.Json": "4.5.6"
-        },
-        "compile": {
-          "lib/net40/System.Net.Http.Formatting.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net40/System.Net.Http.Formatting.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Microsoft.AspNet.WebApi.Core/4.0.20710": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "[4.0.20710, 4.1.0)"
-        },
-        "compile": {
-          "lib/net40/System.Web.Http.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net40/System.Web.Http.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.CSharp/4.5.0": {
         "type": "package",
         "compile": {
@@ -446,25 +413,7 @@
           }
         }
       },
-      "Microsoft.Net.Http/2.0.20710": {
-        "type": "package",
-        "compile": {
-          "lib/net45/_._": {}
-        },
-        "runtime": {
-          "lib/net45/_._": {}
-        }
-      },
       "Microsoft.NETCore.Platforms/3.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard1.0/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard1.0/_._": {}
-        }
-      },
-      "Microsoft.NETCore.Targets/1.0.1": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -532,52 +481,6 @@
           "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
             "assetType": "runtime",
             "rid": "win"
-          }
-        }
-      },
-      "Newtonsoft.Json/4.5.6": {
-        "type": "package",
-        "compile": {
-          "lib/net40/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net40/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "SimpleInjector/5.4.1": {
-        "type": "package",
-        "dependencies": {
-          "System.ComponentModel": "4.0.1"
-        },
-        "compile": {
-          "lib/netstandard2.1/SimpleInjector.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.1/SimpleInjector.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "SimpleInjector.Integration.WebApi/5.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Core": "4.0.20710",
-          "SimpleInjector": "[5.0.0, 6.0.0)"
-        },
-        "compile": {
-          "lib/net45/SimpleInjector.Integration.WebApi.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net45/SimpleInjector.Integration.WebApi.dll": {
-            "related": ".xml"
           }
         }
       },
@@ -663,20 +566,6 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "System.ComponentModel/4.0.1": {
-        "type": "package",
-        "dependencies": {
-          "System.Runtime": "4.1.0"
-        },
-        "compile": {
-          "ref/netstandard1.0/System.ComponentModel.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard1.3/System.ComponentModel.dll": {}
-        }
-      },
       "System.Configuration.ConfigurationManager/4.7.0": {
         "type": "package",
         "dependencies": {
@@ -751,18 +640,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "System.Runtime/4.1.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.NETCore.Targets": "1.0.1"
-        },
-        "compile": {
-          "ref/netstandard1.5/System.Runtime.dll": {
             "related": ".xml"
           }
         }
@@ -951,6 +828,9 @@
       "BoardComponent/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DbComponent": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/BoardComponent.dll": {}
         },
@@ -972,61 +852,10 @@
         "runtime": {
           "bin/placeholder/DbComponent.dll": {}
         }
-      },
-      "TaskComponent/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "BoardComponent": "1.0.0",
-          "UserComponent": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/TaskComponent.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TaskComponent.dll": {}
-        }
-      },
-      "UserComponent/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/UserComponent.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/UserComponent.dll": {}
-        }
       }
     }
   },
   "libraries": {
-    "Microsoft.AspNet.WebApi.Client/4.0.20710": {
-      "sha512": "BwFtW0cGr8tg02XalvF8MmznOpYrhquD2eXWI0oF3LLSqLMFoFkb8Pmke/7SnqkiNc+YfsaUqdXEKbjhv1Ctrw==",
-      "type": "package",
-      "path": "microsoft.aspnet.webapi.client/4.0.20710",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net40/System.Net.Http.Formatting.dll",
-        "lib/net40/System.Net.Http.Formatting.xml",
-        "microsoft.aspnet.webapi.client.4.0.20710.nupkg.sha512",
-        "microsoft.aspnet.webapi.client.nuspec"
-      ]
-    },
-    "Microsoft.AspNet.WebApi.Core/4.0.20710": {
-      "sha512": "ufD+tH4W7+eNsb4pzX5oFTDcgI6J3lffughFTkyLHPBZ+A4Eo+VncAxt3lbt9zxxbLHXIbgJHYRLvtgR5YEZAQ==",
-      "type": "package",
-      "path": "microsoft.aspnet.webapi.core/4.0.20710",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "content/web.config.transform",
-        "lib/net40/System.Web.Http.dll",
-        "lib/net40/System.Web.Http.xml",
-        "microsoft.aspnet.webapi.core.4.0.20710.nupkg.sha512",
-        "microsoft.aspnet.webapi.core.nuspec"
-      ]
-    },
     "Microsoft.CSharp/4.5.0": {
       "sha512": "kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
       "type": "package",
@@ -1639,22 +1468,6 @@
         "microsoft.identitymodel.tokens.nuspec"
       ]
     },
-    "Microsoft.Net.Http/2.0.20710": {
-      "sha512": "OsB/5QO9tYJRLYIgBOhRl4Tssh3pw7+UAO9tMGMBg63f98GfjsniVIwLWRC0vcRr/F6HLP/NvRlHyGBhtD7Bmw==",
-      "type": "package",
-      "path": "microsoft.net.http/2.0.20710",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net40/System.Net.Http.WebRequest.dll",
-        "lib/net40/System.Net.Http.WebRequest.xml",
-        "lib/net40/System.Net.Http.dll",
-        "lib/net40/System.Net.Http.xml",
-        "lib/net45/_._",
-        "microsoft.net.http.2.0.20710.nupkg.sha512",
-        "microsoft.net.http.nuspec"
-      ]
-    },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "sha512": "z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
       "type": "package",
@@ -1670,20 +1483,6 @@
         "runtime.json",
         "useSharedDesignerContext.txt",
         "version.txt"
-      ]
-    },
-    "Microsoft.NETCore.Targets/1.0.1": {
-      "sha512": "rkn+fKobF/cbWfnnfBOQHKVKIOpxMZBvlSHkqDWgBpwGDcLRduvs3D9OLGeV6GWGvVwNlVi2CBbTjuPmtHvyNw==",
-      "type": "package",
-      "path": "microsoft.netcore.targets/1.0.1",
-      "files": [
-        ".nupkg.metadata",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/netstandard1.0/_._",
-        "microsoft.netcore.targets.1.0.1.nupkg.sha512",
-        "microsoft.netcore.targets.nuspec",
-        "runtime.json"
       ]
     },
     "Microsoft.OpenApi/1.2.3": {
@@ -1777,69 +1576,6 @@
         "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
-      ]
-    },
-    "Newtonsoft.Json/4.5.6": {
-      "sha512": "cvZjgllAF/w46KccFZncp0x4yIEceJwPlCTPEBjAPNbAvJXmMCIdGvQa1a8n7YKZ2yV9I1H1IZagwRG+gEbUxQ==",
-      "type": "package",
-      "path": "newtonsoft.json/4.5.6",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net20/Newtonsoft.Json.dll",
-        "lib/net20/Newtonsoft.Json.xml",
-        "lib/net35/Newtonsoft.Json.dll",
-        "lib/net35/Newtonsoft.Json.xml",
-        "lib/net40/Newtonsoft.Json.dll",
-        "lib/net40/Newtonsoft.Json.xml",
-        "lib/sl3-wp/Newtonsoft.Json.dll",
-        "lib/sl3-wp/Newtonsoft.Json.xml",
-        "lib/sl4-windowsphone71/Newtonsoft.Json.dll",
-        "lib/sl4-windowsphone71/Newtonsoft.Json.xml",
-        "lib/sl4/Newtonsoft.Json.dll",
-        "lib/sl4/Newtonsoft.Json.xml",
-        "lib/winrt45/Newtonsoft.Json.dll",
-        "lib/winrt45/Newtonsoft.Json.xml",
-        "newtonsoft.json.4.5.6.nupkg.sha512",
-        "newtonsoft.json.nuspec"
-      ]
-    },
-    "SimpleInjector/5.4.1": {
-      "sha512": "L7s/snITatVAFz3dKM0+YVO0XApEj+ugCstDhq9eQLi1UYnKFyoNW6RtHkYfv5ue/UVrbS3l6ivTKIUO3FcRRg==",
-      "type": "package",
-      "path": "simpleinjector/5.4.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/SimpleInjector.dll",
-        "lib/net45/SimpleInjector.xml",
-        "lib/net461/SimpleInjector.dll",
-        "lib/net461/SimpleInjector.xml",
-        "lib/netstandard1.0/SimpleInjector.dll",
-        "lib/netstandard1.0/SimpleInjector.xml",
-        "lib/netstandard1.3/SimpleInjector.dll",
-        "lib/netstandard1.3/SimpleInjector.xml",
-        "lib/netstandard2.0/SimpleInjector.dll",
-        "lib/netstandard2.0/SimpleInjector.xml",
-        "lib/netstandard2.1/SimpleInjector.dll",
-        "lib/netstandard2.1/SimpleInjector.xml",
-        "simpleinjector.5.4.1.nupkg.sha512",
-        "simpleinjector.nuspec",
-        "simpleinjector.png"
-      ]
-    },
-    "SimpleInjector.Integration.WebApi/5.0.0": {
-      "sha512": "2X7UnGvhZgfl7CruLIKrgI7E7fwm8SyfG+DvA6DHynxRqNpJlybIbZ9CZcNbFnC8UioNz1K+gAjrH2CG9AmeyA==",
-      "type": "package",
-      "path": "simpleinjector.integration.webapi/5.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/SimpleInjector.Integration.WebApi.dll",
-        "lib/net45/SimpleInjector.Integration.WebApi.xml",
-        "simpleinjector.integration.webapi.5.0.0.nupkg.sha512",
-        "simpleinjector.integration.webapi.nuspec",
-        "simpleinjector.png"
       ]
     },
     "Swashbuckle.AspNetCore/6.2.3": {
@@ -1946,65 +1682,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "System.ComponentModel/4.0.1": {
-      "sha512": "oBZFnm7seFiVfugsIyOvQCWobNZs7FzqDV/B7tx20Ep/l3UUFCPDkdTnCNaJZTU27zjeODmy2C/cP60u3D4c9w==",
-      "type": "package",
-      "path": "system.componentmodel/4.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net45/_._",
-        "lib/netcore50/System.ComponentModel.dll",
-        "lib/netstandard1.3/System.ComponentModel.dll",
-        "lib/portable-net45+win8+wp8+wpa81/_._",
-        "lib/win8/_._",
-        "lib/wp80/_._",
-        "lib/wpa81/_._",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net45/_._",
-        "ref/netcore50/System.ComponentModel.dll",
-        "ref/netcore50/System.ComponentModel.xml",
-        "ref/netcore50/de/System.ComponentModel.xml",
-        "ref/netcore50/es/System.ComponentModel.xml",
-        "ref/netcore50/fr/System.ComponentModel.xml",
-        "ref/netcore50/it/System.ComponentModel.xml",
-        "ref/netcore50/ja/System.ComponentModel.xml",
-        "ref/netcore50/ko/System.ComponentModel.xml",
-        "ref/netcore50/ru/System.ComponentModel.xml",
-        "ref/netcore50/zh-hans/System.ComponentModel.xml",
-        "ref/netcore50/zh-hant/System.ComponentModel.xml",
-        "ref/netstandard1.0/System.ComponentModel.dll",
-        "ref/netstandard1.0/System.ComponentModel.xml",
-        "ref/netstandard1.0/de/System.ComponentModel.xml",
-        "ref/netstandard1.0/es/System.ComponentModel.xml",
-        "ref/netstandard1.0/fr/System.ComponentModel.xml",
-        "ref/netstandard1.0/it/System.ComponentModel.xml",
-        "ref/netstandard1.0/ja/System.ComponentModel.xml",
-        "ref/netstandard1.0/ko/System.ComponentModel.xml",
-        "ref/netstandard1.0/ru/System.ComponentModel.xml",
-        "ref/netstandard1.0/zh-hans/System.ComponentModel.xml",
-        "ref/netstandard1.0/zh-hant/System.ComponentModel.xml",
-        "ref/portable-net45+win8+wp8+wpa81/_._",
-        "ref/win8/_._",
-        "ref/wp80/_._",
-        "ref/wpa81/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.componentmodel.4.0.1.nupkg.sha512",
-        "system.componentmodel.nuspec"
-      ]
-    },
     "System.Configuration.ConfigurationManager/4.7.0": {
       "sha512": "/anOTeSZCNNI2zDilogWrZ8pNqCmYbzGNexUnNhjW8k0sHqEZ2nHJBp147jBV3hGYswu5lINpNg1vxR7bnqvVA==",
       "type": "package",
@@ -2107,97 +1784,6 @@
         "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.xml",
         "system.identitymodel.tokens.jwt.6.8.0.nupkg.sha512",
         "system.identitymodel.tokens.jwt.nuspec"
-      ]
-    },
-    "System.Runtime/4.1.0": {
-      "sha512": "v6c/4Yaa9uWsq+JMhnOFewrYkgdNHNG2eMKuNqRn8P733rNXeRCGvV5FkkjBXn2dbVkPXOsO0xjsEeM1q2zC0g==",
-      "type": "package",
-      "path": "system.runtime/4.1.0",
-      "files": [
-        ".nupkg.metadata",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net45/_._",
-        "lib/net462/System.Runtime.dll",
-        "lib/portable-net45+win8+wp80+wpa81/_._",
-        "lib/win8/_._",
-        "lib/wp80/_._",
-        "lib/wpa81/_._",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net45/_._",
-        "ref/net462/System.Runtime.dll",
-        "ref/netcore50/System.Runtime.dll",
-        "ref/netcore50/System.Runtime.xml",
-        "ref/netcore50/de/System.Runtime.xml",
-        "ref/netcore50/es/System.Runtime.xml",
-        "ref/netcore50/fr/System.Runtime.xml",
-        "ref/netcore50/it/System.Runtime.xml",
-        "ref/netcore50/ja/System.Runtime.xml",
-        "ref/netcore50/ko/System.Runtime.xml",
-        "ref/netcore50/ru/System.Runtime.xml",
-        "ref/netcore50/zh-hans/System.Runtime.xml",
-        "ref/netcore50/zh-hant/System.Runtime.xml",
-        "ref/netstandard1.0/System.Runtime.dll",
-        "ref/netstandard1.0/System.Runtime.xml",
-        "ref/netstandard1.0/de/System.Runtime.xml",
-        "ref/netstandard1.0/es/System.Runtime.xml",
-        "ref/netstandard1.0/fr/System.Runtime.xml",
-        "ref/netstandard1.0/it/System.Runtime.xml",
-        "ref/netstandard1.0/ja/System.Runtime.xml",
-        "ref/netstandard1.0/ko/System.Runtime.xml",
-        "ref/netstandard1.0/ru/System.Runtime.xml",
-        "ref/netstandard1.0/zh-hans/System.Runtime.xml",
-        "ref/netstandard1.0/zh-hant/System.Runtime.xml",
-        "ref/netstandard1.2/System.Runtime.dll",
-        "ref/netstandard1.2/System.Runtime.xml",
-        "ref/netstandard1.2/de/System.Runtime.xml",
-        "ref/netstandard1.2/es/System.Runtime.xml",
-        "ref/netstandard1.2/fr/System.Runtime.xml",
-        "ref/netstandard1.2/it/System.Runtime.xml",
-        "ref/netstandard1.2/ja/System.Runtime.xml",
-        "ref/netstandard1.2/ko/System.Runtime.xml",
-        "ref/netstandard1.2/ru/System.Runtime.xml",
-        "ref/netstandard1.2/zh-hans/System.Runtime.xml",
-        "ref/netstandard1.2/zh-hant/System.Runtime.xml",
-        "ref/netstandard1.3/System.Runtime.dll",
-        "ref/netstandard1.3/System.Runtime.xml",
-        "ref/netstandard1.3/de/System.Runtime.xml",
-        "ref/netstandard1.3/es/System.Runtime.xml",
-        "ref/netstandard1.3/fr/System.Runtime.xml",
-        "ref/netstandard1.3/it/System.Runtime.xml",
-        "ref/netstandard1.3/ja/System.Runtime.xml",
-        "ref/netstandard1.3/ko/System.Runtime.xml",
-        "ref/netstandard1.3/ru/System.Runtime.xml",
-        "ref/netstandard1.3/zh-hans/System.Runtime.xml",
-        "ref/netstandard1.3/zh-hant/System.Runtime.xml",
-        "ref/netstandard1.5/System.Runtime.dll",
-        "ref/netstandard1.5/System.Runtime.xml",
-        "ref/netstandard1.5/de/System.Runtime.xml",
-        "ref/netstandard1.5/es/System.Runtime.xml",
-        "ref/netstandard1.5/fr/System.Runtime.xml",
-        "ref/netstandard1.5/it/System.Runtime.xml",
-        "ref/netstandard1.5/ja/System.Runtime.xml",
-        "ref/netstandard1.5/ko/System.Runtime.xml",
-        "ref/netstandard1.5/ru/System.Runtime.xml",
-        "ref/netstandard1.5/zh-hans/System.Runtime.xml",
-        "ref/netstandard1.5/zh-hant/System.Runtime.xml",
-        "ref/portable-net45+win8+wp80+wpa81/_._",
-        "ref/win8/_._",
-        "ref/wp80/_._",
-        "ref/wpa81/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.runtime.4.1.0.nupkg.sha512",
-        "system.runtime.nuspec"
       ]
     },
     "System.Runtime.Caching/4.7.0": {
@@ -2566,16 +2152,6 @@
       "type": "project",
       "path": "../DbComponent/DbComponent.csproj",
       "msbuildProject": "../DbComponent/DbComponent.csproj"
-    },
-    "TaskComponent/1.0.0": {
-      "type": "project",
-      "path": "../TaskComponent/TaskComponent.csproj",
-      "msbuildProject": "../TaskComponent/TaskComponent.csproj"
-    },
-    "UserComponent/1.0.0": {
-      "type": "project",
-      "path": "../UserComponent/UserComponent.csproj",
-      "msbuildProject": "../UserComponent/UserComponent.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2585,31 +2161,29 @@
       "Microsoft.EntityFrameworkCore >= 6.0.11",
       "Microsoft.EntityFrameworkCore.Relational >= 6.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.11",
-      "SimpleInjector >= 5.4.1",
-      "SimpleInjector.Integration.WebApi >= 5.0.0",
-      "Swashbuckle.AspNetCore >= 6.2.3",
-      "TaskComponent >= 1.0.0",
-      "UserComponent >= 1.0.0"
+      "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\benja\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Benjamin Roesdal\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\ScrumboardApi\\ScrumboardApi.csproj",
+      "projectUniqueName": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\ScrumboardApi\\ScrumboardApi.csproj",
       "projectName": "ScrumboardApi",
-      "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\ScrumboardApi\\ScrumboardApi.csproj",
-      "packagesPath": "C:\\Users\\benja\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\ScrumboardApi\\obj\\",
+      "projectPath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\ScrumboardApi\\ScrumboardApi.csproj",
+      "packagesPath": "C:\\Users\\Benjamin Roesdal\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\ScrumboardApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\benja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Benjamin Roesdal\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2619,23 +2193,20 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Users\\Benjamin Roesdal\\Desktop\\DevNugets": {},
+        "C:\\workspace\\.NoitsoNugets": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://www.myget.org/F/noitso/auth/ab8a6c89-6b8b-47b2-a088-6eedc01f11af/api/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj": {
-              "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj"
+            "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj": {
+              "projectPath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj"
             },
-            "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\DbComponent.csproj": {
-              "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\DbComponent.csproj"
-            },
-            "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\TaskComponent\\TaskComponent.csproj": {
-              "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\TaskComponent\\TaskComponent.csproj"
-            },
-            "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\UserComponent\\UserComponent.csproj": {
-              "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\UserComponent\\UserComponent.csproj"
+            "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\DbComponent.csproj": {
+              "projectPath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\DbComponent.csproj"
             }
           }
         }
@@ -2661,14 +2232,6 @@
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[6.0.11, )"
-          },
-          "SimpleInjector": {
-            "target": "Package",
-            "version": "[5.4.1, )"
-          },
-          "SimpleInjector.Integration.WebApi": {
-            "target": "Package",
-            "version": "[5.0.0, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
@@ -2697,57 +2260,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.WebApi.Client 4.0.20710' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.AspNet.WebApi.Client",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.WebApi.Core 4.0.20710' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.AspNet.WebApi.Core",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.Net.Http 2.0.20710' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.Net.Http",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Newtonsoft.Json 4.5.6' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Newtonsoft.Json",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'SimpleInjector.Integration.WebApi 5.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "SimpleInjector.Integration.WebApi",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  }
 }

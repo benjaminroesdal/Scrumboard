@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\ScrumboardApi\\ScrumboardApi.csproj": {}
+    "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\ScrumboardApi\\ScrumboardApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj": {
+    "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj",
+        "projectUniqueName": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj",
         "projectName": "BoardComponent",
-        "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj",
-        "packagesPath": "C:\\Users\\benja\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\obj\\",
+        "projectPath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj",
+        "packagesPath": "C:\\Users\\Benjamin Roesdal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\benja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Benjamin Roesdal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,12 +28,19 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Users\\Benjamin Roesdal\\Desktop\\DevNugets": {},
+          "C:\\workspace\\.NoitsoNugets": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.myget.org/F/noitso/auth/ab8a6c89-6b8b-47b2-a088-6eedc01f11af/api/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\DbComponent.csproj": {
+                "projectPath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\DbComponent.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -64,20 +72,21 @@
         }
       }
     },
-    "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\DbComponent.csproj": {
+    "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\DbComponent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\DbComponent.csproj",
+        "projectUniqueName": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\DbComponent.csproj",
         "projectName": "DbComponent",
-        "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\DbComponent.csproj",
-        "packagesPath": "C:\\Users\\benja\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\obj\\",
+        "projectPath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\DbComponent.csproj",
+        "packagesPath": "C:\\Users\\Benjamin Roesdal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\benja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Benjamin Roesdal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -87,7 +96,10 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Users\\Benjamin Roesdal\\Desktop\\DevNugets": {},
+          "C:\\workspace\\.NoitsoNugets": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.myget.org/F/noitso/auth/ab8a6c89-6b8b-47b2-a088-6eedc01f11af/api/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -138,20 +150,21 @@
         }
       }
     },
-    "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\ScrumboardApi\\ScrumboardApi.csproj": {
+    "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\ScrumboardApi\\ScrumboardApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\ScrumboardApi\\ScrumboardApi.csproj",
+        "projectUniqueName": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\ScrumboardApi\\ScrumboardApi.csproj",
         "projectName": "ScrumboardApi",
-        "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\ScrumboardApi\\ScrumboardApi.csproj",
-        "packagesPath": "C:\\Users\\benja\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\ScrumboardApi\\obj\\",
+        "projectPath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\ScrumboardApi\\ScrumboardApi.csproj",
+        "packagesPath": "C:\\Users\\Benjamin Roesdal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\ScrumboardApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\benja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Benjamin Roesdal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -161,23 +174,20 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Users\\Benjamin Roesdal\\Desktop\\DevNugets": {},
+          "C:\\workspace\\.NoitsoNugets": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.myget.org/F/noitso/auth/ab8a6c89-6b8b-47b2-a088-6eedc01f11af/api/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj": {
-                "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj"
+              "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj": {
+                "projectPath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj"
               },
-              "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\DbComponent.csproj": {
-                "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\DbComponent.csproj"
-              },
-              "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\TaskComponent\\TaskComponent.csproj": {
-                "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\TaskComponent\\TaskComponent.csproj"
-              },
-              "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\UserComponent\\UserComponent.csproj": {
-                "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\UserComponent\\UserComponent.csproj"
+              "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\DbComponent.csproj": {
+                "projectPath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\DbComponent\\DbComponent.csproj"
               }
             }
           }
@@ -203,14 +213,6 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[6.0.11, )"
-            },
-            "SimpleInjector": {
-              "target": "Package",
-              "version": "[5.4.1, )"
-            },
-            "SimpleInjector.Integration.WebApi": {
-              "target": "Package",
-              "version": "[5.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -232,133 +234,6 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\TaskComponent\\TaskComponent.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\TaskComponent\\TaskComponent.csproj",
-        "projectName": "TaskComponent",
-        "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\TaskComponent\\TaskComponent.csproj",
-        "packagesPath": "C:\\Users\\benja\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\TaskComponent\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\benja\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj": {
-                "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\BoardComponent\\BoardComponent.csproj"
-              },
-              "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\UserComponent\\UserComponent.csproj": {
-                "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\UserComponent\\UserComponent.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\UserComponent\\UserComponent.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\UserComponent\\UserComponent.csproj",
-        "projectName": "UserComponent",
-        "projectPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\UserComponent\\UserComponent.csproj",
-        "packagesPath": "C:\\Users\\benja\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\benja\\Documents\\GitHub\\Scrumboard\\ScrumboardApi\\UserComponent\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\benja\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
