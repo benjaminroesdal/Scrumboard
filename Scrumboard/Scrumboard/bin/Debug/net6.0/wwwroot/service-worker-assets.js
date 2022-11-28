@@ -61,7 +61,7 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-imb3poJwkcQhKSN+BJRTZ21GdZVSlxOhrUsAtath4pM=",
+      "hash": "sha256-EUx9xHtj6Zk5KHnUbVYETjYIvTFhF3V1al+eI31kHMM=",
       "url": "index.html"
     },
     {
@@ -73,7 +73,7 @@
       "url": "sample-data\/weather.json"
     },
     {
-      "hash": "sha256-K7PIJNkpk6+HuagzqFjeHqxCgW7N\/sgv1SGfDmi5HzE=",
+      "hash": "sha256-TUMPN5NQoevzOdF9IAf3in+h7XdtRE8hzab9GJ0zikk=",
       "url": "Scrumboard.styles.css"
     },
     {
@@ -869,11 +869,11 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-MHD8zIzQqi4IbrdnlQLyrnF0Hxj7j4NaVvtncV8nzGg=",
+      "hash": "sha256-DGnhKEn3i+lgFUd97CAqXD81GhUI88u5YLMq6Fp7WYY=",
       "url": "_framework\/Scrumboard.dll"
     },
     {
-      "hash": "sha256-tVjdOA4Yal2Mp7ZBYxo4o34aId40dr5a8PnWmsDerDU=",
+      "hash": "sha256-n1V1nv9yV3hmK3+anK5bMq2BuQ1puqwb5cNgXSsBbk4=",
       "url": "_framework\/Scrumboard.pdb"
     },
     {
@@ -881,7 +881,7 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-bs85WInjNAxNWuiSyJujMwnA8Yp6RwNrrg6kA0zzIWk=",
+      "hash": "sha256-qdxYZny19RhyVRMwmwntmcg6QWQTAcryxsPgK81eCRk=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -893,5 +893,5 @@
       "url": "_content\/MudBlazor\/MudBlazor.min.js"
     }
   ],
-  "version": "MtNKJJlp"
+  "version": "3NVaUNoR"
 };

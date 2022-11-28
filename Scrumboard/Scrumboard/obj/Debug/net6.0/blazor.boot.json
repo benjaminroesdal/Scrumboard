@@ -198,13 +198,13 @@
       "mscorlib.dll": "sha256-cx\/3nJhFns3tZhQNQOyiRyKJESKxOjLVufzWnri6KSA=",
       "netstandard.dll": "sha256-yWufW5W4SSfjocBcWTEDqnFwTd\/VYtLMc2Y9mPmlggc=",
       "System.Private.CoreLib.dll": "sha256-H009wzPwRoDZlwvpN4KLCsUwN7Y1AmjKB3PIEHA7ObQ=",
-      "Scrumboard.dll": "sha256-wYDkCC33fFAEvx0KTjm4Bzip81lWqw15al67ufxkV\/s="
+      "Scrumboard.dll": "sha256-hVDgupe68Zh31+rcBQ6OfdTu8qOZKeu+dh36F1VqmUA="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "Scrumboard.pdb": "sha256-yZOD7bfGrGFh8l26dmNETU5JMpMMYfQd1qlby9j+cls="
+      "Scrumboard.pdb": "sha256-QWAyiSkBDvcAfps1Wr1M+fe8l6OHxzz9Cca\/vM+WwJQ="
     },
     "runtime": {
       "dotnet.6.0.11.t9beqiowsu.js": "sha256-F30V+6jU3jwJYFZoLuwMAqzTiOXu6q7zGgOdjYBofDI=",

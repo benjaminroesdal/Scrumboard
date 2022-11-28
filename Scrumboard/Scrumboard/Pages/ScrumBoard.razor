@@ -1,4 +1,4 @@
-﻿@page "/counter"
+﻿@page "/"
 
 @using Microsoft.AspNetCore.Components
 @using System.ComponentModel.DataAnnotations
@@ -25,7 +25,7 @@
 	<ChildContent>
 		@foreach (var item in _sections)
 		{
-			<MudPaper Elevation="0" Width="324px" MinHeight="400px" Class="pa-4 ma-4 d-flex flex-column mud-background-gray rounded-lg">
+			<MudPaper Elevation="0" Width="250px" MinHeight="400px" Class="pa-4 ma-2 d-flex flex-column mud-background-gray rounded-lg">
 				<MudToolBar DisableGutters="true">
 					<MudText Typo="Typo.subtitle1"><b>@item.Name</b></MudText>
 					<MudSpacer />
@@ -62,11 +62,8 @@
 	<ItemRenderer>
 		<MudCard Elevation="25" Class="pa-4 rounded-lg my-3">
 			<MudCardContent>
-				<div class="d-flex flex-grow-1 gap-4">
-					<MudText>@context.name</MudText>
-					<MudFab DisableRipple="true" Color="Color.Error" StartIcon="@Icons.Material.Filled.Delete" Size="Size.Small" OnClick="() => DeleteDialog(context)" />
-				</div>
-				<MudText Typo="Typo.body2">@context.description</MudText>
+                <MudText>@context.name</MudText>
+                <MudText Typo="Typo.body2">@context.description</MudText>
 				@switch (@context.priority)
 				{
 					case Priority.Urgent:
@@ -81,8 +78,9 @@
 				}
 			</MudCardContent>
 			<MudCardActions>
-				<MudButton DisableRipple="true" Variant="Variant.Text" @onclick="@((e) => OpenEditDialog(context))" Color="Color.Primary">Edit</MudButton>
-			</MudCardActions>
+                <MudButton DisableRipple="true" Variant="Variant.Text" @onclick="@((e) => OpenEditDialog(context))" Color="Color.Primary">Edit</MudButton>
+                <MudFab DisableRipple="true" Color="Color.Error" StartIcon="@Icons.Material.Filled.Delete" Size="Size.Small" OnClick="() => DeleteDialog(context)" />
+            </MudCardActions>
 		</MudCard>
 	</ItemRenderer>
 </MudDropContainer>
@@ -157,8 +155,8 @@
 
 	private async Task OnValidSectionSubmit(EditContext context)
 	{
-		await apiService.CreateState(newStateModel);
-		_sections.Add(newStateModel);
+		var stateResult = await apiService.CreateState(newStateModel);
+		_sections.Add(stateResult);
 		_sections = _sections.OrderByDescending(e => e.StatePriority).ToList();
 		newStateModel = new State();
 		_addSectionOpen = false;

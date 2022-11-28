@@ -1640,7 +1640,6 @@ C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\obj\
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\obj\Debug\net6.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
-C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\obj\Debug\net6.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\obj\Debug\net6.0\scopedcss\bundle\Scrumboard.styles.css
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\obj\Debug\net6.0\scopedcss\projectbundle\Scrumboard.bundle.scp.css
 C:\Users\Benjamin Roesdal\Documents\GitHub\Scrumboard\Scrumboard\Scrumboard\obj\Debug\net6.0\service-worker\service-worker.js

@@ -30,10 +30,10 @@ namespace ScrumboardApi.Controllers
 		}
 
 		[HttpPost("CreateState")]
-		public IActionResult CreateState([FromBody]StateModel state)
+		public async Task<StateModel> CreateState([FromBody]StateModel state)
 		{
-			_boardService.CreateState(state);
-			return Ok();
+			var result = await _boardService.CreateState(state);
+			return result;
 		}
 
 		[HttpPost("CreateTask")]
