@@ -129,6 +129,8 @@ dist
 # extra ignores
 *.suo
 *.user
+bin
+obj
 _ReSharper.*
 packages
 
