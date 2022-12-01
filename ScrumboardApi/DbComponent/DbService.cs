@@ -35,11 +35,11 @@ namespace DbComponent
 			var saveResult = await _context.SaveChangesAsync();
 			if (saveResult == 0)
 				throw new Exception("Nothing was saved to db");
-			var dbTask = await _context.Tasks.Include(e => e.Reporter)
+			var taskDao = await _context.Tasks.Include(e => e.Reporter)
 				.Include(e => e.Assignee)
 				.Include(e => e.State)
 				.FirstOrDefaultAsync(e => e.TaskID == task.TaskID);
-			return dbTask;
+			return taskDao;
 		}
 
 		public async Task UpdateTask(BoardTask task)

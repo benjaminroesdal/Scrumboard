@@ -41,7 +41,6 @@
 
     public BoardTask task { get; set; } = new BoardTask() {reporter = new User(), assignee = new User(), state = new State() };
     [Parameter] public List<User> users { get; set; } = new List<User>();
-    [Parameter] public List<State> states { get; set; } = new List<State>();
     [Parameter] public State selectedState { get; set; } = new State();
 
     private User reporter;

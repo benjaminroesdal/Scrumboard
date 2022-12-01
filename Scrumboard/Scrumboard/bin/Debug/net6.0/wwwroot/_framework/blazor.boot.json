@@ -7,6 +7,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
+      "Blazored.Toast.dll": "sha256-6cGnZ9WDP6hzM+ZRdvG+94hYjOke+bTjbJ5Xyawsp0M=",
       "Microsoft.AspNetCore.Authorization.dll": "sha256-gbA+AujHUUBawZgIGQVo3vLdHlkaD7QLRM0dStUecSM=",
       "Microsoft.AspNetCore.Components.dll": "sha256-+gNaJML9x0hS\/cLcBimAURDK\/S8nSWJZkTCaP5lgRys=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-uEDGfx46VmVIFGVu1clYPrq64JTRcayMUjUw1cr6Zck=",
@@ -198,13 +199,13 @@
       "mscorlib.dll": "sha256-cx\/3nJhFns3tZhQNQOyiRyKJESKxOjLVufzWnri6KSA=",
       "netstandard.dll": "sha256-yWufW5W4SSfjocBcWTEDqnFwTd\/VYtLMc2Y9mPmlggc=",
       "System.Private.CoreLib.dll": "sha256-H009wzPwRoDZlwvpN4KLCsUwN7Y1AmjKB3PIEHA7ObQ=",
-      "Scrumboard.dll": "sha256-hVDgupe68Zh31+rcBQ6OfdTu8qOZKeu+dh36F1VqmUA="
+      "Scrumboard.dll": "sha256-NGUqaeFdO0JhquteiVahjKntRS7l3ggnZmwLzlY5G04="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "Scrumboard.pdb": "sha256-QWAyiSkBDvcAfps1Wr1M+fe8l6OHxzz9Cca\/vM+WwJQ="
+      "Scrumboard.pdb": "sha256-EblH7Wxm\/8BwBONWhvqnsbDw9nfvhSCo9m1KX+ggI9o="
     },
     "runtime": {
       "dotnet.6.0.11.t9beqiowsu.js": "sha256-F30V+6jU3jwJYFZoLuwMAqzTiOXu6q7zGgOdjYBofDI=",

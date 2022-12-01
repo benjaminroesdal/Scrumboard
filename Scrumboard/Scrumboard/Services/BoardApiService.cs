@@ -1,4 +1,5 @@
 ﻿using System.Net.Http.Json;
+using Blazored.Toast.Services;
 using Microsoft.JSInterop;
 using RestSharp;
 using Scrumboard.Models;
@@ -9,52 +10,109 @@ namespace Scrumboard.Services
 	public class BoardApiService
 	{
 		private static HttpClient _client;
+        private IToastService _toastService;
 
-		public BoardApiService(HttpClient client)
+		public BoardApiService(HttpClient client, IToastService toastService)
 		{
 			_client = client;
-		}
+            _toastService = toastService;
+        }
 
         public async Task<List<User>> GetUsers()
         {
-            var result = await _client.GetFromJsonAsync<List<User>>("https://localhost:7209/api/Board/GetUsers");
-            return result;
+            List<User> users = new List<User>();
+            try
+            {
+                users = await _client.GetFromJsonAsync<List<User>>("https://c7bf-93-176-82-58.eu.ngrok.io/api/Board/GetUsers");
+            }
+            catch (Exception e)
+            {
+                _toastService.ShowError($"Error occurred when trying to fetch users - {e.Message}");
+            }
+
+            return users;
         }
 
 		public async Task<List<State>> GetSections()
-		{
-			var result = await _client.GetFromJsonAsync<List<State>>("https://localhost:7209/api/Board/GetStates");
-            return result;
+        {
+            List<State> states = new List<State>();
+            try
+            {
+                states = await _client.GetFromJsonAsync<List<State>>("https://c7bf-93-176-82-58.eu.ngrok.io/api/Board/GetStates");
+            }
+            catch (Exception e)
+            {
+                _toastService.ShowError($"Error occurred when trying to fetch states - {e.HResult}");
+            }
+            return states;
         }
 
         public async Task<List<BoardTask>> GetTasks()
         {
-            var tasks = await _client.GetFromJsonAsync<List<BoardTask>>("https://localhost:7209/api/Board/GetTasks");
+            List<BoardTask> tasks = new List<BoardTask>();
+            try
+            {
+                tasks = await _client.GetFromJsonAsync<List<BoardTask>>("https://c7bf-93-176-82-58.eu.ngrok.io/api/Board/GetTasks");
+            }
+            catch (Exception e)
+            {
+                _toastService.ShowError($"Error occurred when trying to fetch tasks - {e.Message}");
+            }
             return tasks;
         }
 
         public async Task<BoardTask> CreateTask(BoardTask task)
         {
-            var result = await _client.PostAsJsonAsync<BoardTask>("https://localhost:7209/api/Board/CreateTask", task);
-            var objRes = await result.Content.ReadFromJsonAsync<BoardTask>();
-            return objRes;
+            BoardTask taskResult = new BoardTask();
+            try
+            {
+                var result = await _client.PostAsJsonAsync<BoardTask>("https://c7bf-93-176-82-58.eu.ngrok.io/api/Board/CreateTask", task);
+                taskResult = await result.Content.ReadFromJsonAsync<BoardTask>();
+            }
+            catch (Exception e)
+            {
+                _toastService.ShowError($"Error occurred when trying to create task {task.name} - {e.Message}");
+            }
+            return taskResult;
         }
 
         public async Task UpdateTask(BoardTask task)
         {
-            await _client.PostAsJsonAsync<BoardTask>("https://localhost:7209/api/Board/UpdateTask", task);
+            try
+            {
+                await _client.PostAsJsonAsync<BoardTask>("https://c7bf-93-176-82-58.eu.ngrok.io/api/Board/UpdateTask", task);
+            }
+            catch (Exception e)
+            {
+                _toastService.ShowError($"Error occurred when trying to update task {task.name} - {e.Message}");
+            }
         }
 
         public async Task DeleteTask(BoardTask task)
         {
-            await _client.PostAsJsonAsync("https://localhost:7209/api/Board/DeleteTask", task);
+            try
+            {
+                await _client.PostAsJsonAsync("https://c7bf-93-176-82-58.eu.ngrok.io/api/Board/DeleteTask", task);
+            }
+            catch (Exception e)
+            {
+                _toastService.ShowError($"Error occurred when trying to delete task {task.name} - {e.Message}");
+            }
         }
 
         public async Task<State> CreateState(State state)
         {
-            var result = await _client.PostAsJsonAsync<State>("https://localhost:7209/api/Board/CreateState", state);
-            var objRes = await result.Content.ReadFromJsonAsync<State>();
-            return objRes;
+            State stateRes = new State();
+            try
+            {
+                var result = await _client.PostAsJsonAsync<State>("https://c7bf-93-176-82-58.eu.ngrok.io/api/Board/CreateState", state);
+                stateRes = await result.Content.ReadFromJsonAsync<State>();
+            }
+            catch (Exception e)
+            {
+                _toastService.ShowError($"Error occurred when trying to create new state {state.Name} - {e.Message}");
+            }
+            return stateRes;
         }
 	}
 }

@@ -86,8 +86,7 @@
 
     private void SetTaskAssigneeOnSelect()
     {
-        task.assignee.userName = assignee.userName;
-        task.assignee.id = assignee.id;
+        task.assignee = assignee;
         task.AssigneeID = assignee.id;
     }
 

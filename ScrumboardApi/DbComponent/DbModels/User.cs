@@ -12,6 +12,7 @@ namespace DbComponent.DbModels
     {
         public int ID { get; set; }
         public string UserName { get; set; }
+        public string Email { get; set; }
 
         public virtual ICollection<BoardTask> ReporterTasks { get; set; }
         public virtual ICollection<BoardTask> AssigneeTasks { get; set; }
@@ -24,6 +25,7 @@ namespace DbComponent.DbModels
         {
 	        ID = model.Id;
             UserName = model.UserName;
+            Email = model.Email;
         }
 
         public static User CreateDao(UserModel model)

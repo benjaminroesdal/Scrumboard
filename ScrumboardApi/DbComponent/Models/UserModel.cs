@@ -11,6 +11,7 @@ namespace DbComponent.Models
 	{
 		public int Id { get; set; }
 		public string UserName { get; set; }
+		public string Email { get; set; }
 
 		public UserModel()
 		{
@@ -20,6 +21,7 @@ namespace DbComponent.Models
 		{
 			Id = user.ID;
 			UserName = user.UserName;
+			Email = user.Email;
 		}
 
 		public static UserModel CreateModel(User user)

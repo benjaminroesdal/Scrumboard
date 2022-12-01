@@ -15,51 +15,107 @@ namespace ScrumboardApi.Controllers
 			_boardService = boardService;
 		}
 
-        [HttpGet("GetUsers")]
-        public List<UserModel> GetUsers()
-        {
-			var result = _boardService.GetUsers();
-            return result;
+		[HttpGet("GetUsers")]
+        public IActionResult GetUsers()
+        { 
+            List<UserModel> result;
+            try
+            {
+                result = _boardService.GetUsers();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+
+            return Ok(result);
         }
 
 		[HttpGet("GetStates")]
-		public List<State> GetStates()
-		{
-			var result = _boardService.GetStates();
-			return result;
+		public IActionResult GetStates()
+        {
+            List<State> result;
+            try
+            {
+                result = _boardService.GetStates();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+			return Ok(result);
 		}
 
 		[HttpPost("CreateState")]
-		public async Task<StateModel> CreateState([FromBody]StateModel state)
-		{
-			var result = await _boardService.CreateState(state);
-			return result;
+		public async Task<IActionResult> CreateState([FromBody]StateModel state)
+        {
+            StateModel result;
+            try
+            {
+                result = await _boardService.CreateState(state);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+			return Ok(result);
 		}
 
 		[HttpPost("CreateTask")]
 		public async Task<IActionResult> CreateTask([FromBody]BoardTaskModel model)
-		{
-			var result = await _boardService.CreateTask(model);
-			return Ok(result);
+        {
+            BoardTaskModel result;
+            try
+            {
+                result = await _boardService.CreateTask(model);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+            return Ok(result);
 		}
 
 		[HttpGet("GetTasks")]
-		public List<BoardTaskModel> GetTasks()
-		{
-			return _boardService.GetTasks();
+		public async Task<IActionResult> GetTasks()
+        {
+            var result = new List<BoardTaskModel>();
+            try
+            {
+                result = _boardService.GetTasks();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+			return Ok(result);
 		}
 
 		[HttpPost("UpdateTask")]
 		public async Task<IActionResult> UpdateTask([FromBody] BoardTaskModel model)
-		{
-			await _boardService.UpdateTask(model);
+        {
+            try
+            { 
+                await _boardService.UpdateTask(model);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
 			return Ok();
 		}
 
         [HttpPost("DeleteTask")]
         public async Task<IActionResult> DeleteTask([FromBody] BoardTaskModel task)
         {
-            await _boardService.DeleteTask(task);
+            try
+            {
+                await _boardService.DeleteTask(task);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
             return Ok();
         }
     }

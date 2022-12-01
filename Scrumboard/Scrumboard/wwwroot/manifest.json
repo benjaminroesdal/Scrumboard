@@ -17,12 +17,5 @@
       "type": "image/png",
       "sizes": "192x192"
     }
-  ],
-  "<service": null,
-  "android": "name=\".java.MyFirebaseMessagingService\"",
-  "android": "exported=\"false\">",
-  "<intent-filter>" "<action",
-  "android": "name=\"com.google.firebase.MESSAGING_EVENT\"",
-  "/>" "</intent-filter>",
-  "</service>"
+  ]
 }

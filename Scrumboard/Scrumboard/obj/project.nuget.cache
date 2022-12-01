@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "j+WfKgcfKBowuJhnvdU8hzeS2N86qGJtk3smkvgTp+dEITg/DpvwaQQ4sOEwKc1lTTcdmGKoWkTJnlBMndzY3w==",
+  "dgSpecHash": "y0+zsaNEYypkJhkgL0/SC1toHV2hON/JT739t9T7lrn6FCCByNAefMjI6WFmDev9n1KQOffzxwBe3DEyi/M8cQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Benjamin Roesdal\\Documents\\GitHub\\Scrumboard\\Scrumboard\\Scrumboard\\Scrumboard.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Benjamin Roesdal\\.nuget\\packages\\blazored.localstorage\\4.3.0\\blazored.localstorage.4.3.0.nupkg.sha512",
+    "C:\\Users\\Benjamin Roesdal\\.nuget\\packages\\blazored.toast\\3.2.2\\blazored.toast.3.2.2.nupkg.sha512",
     "C:\\Users\\Benjamin Roesdal\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.10\\microsoft.aspnetcore.authorization.6.0.10.nupkg.sha512",
     "C:\\Users\\Benjamin Roesdal\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.10\\microsoft.aspnetcore.components.6.0.10.nupkg.sha512",
     "C:\\Users\\Benjamin Roesdal\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.10\\microsoft.aspnetcore.components.analyzers.6.0.10.nupkg.sha512",

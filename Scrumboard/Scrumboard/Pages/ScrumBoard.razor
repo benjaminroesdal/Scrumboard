@@ -1,25 +1,27 @@
 ﻿@page "/"
 
 @using Microsoft.AspNetCore.Components
-@using System.ComponentModel.DataAnnotations
 @using Scrumboard.Models
 @using Scrumboard.Services
+@using Blazored.LocalStorage
 @inject HttpClient Http
 @inject BoardApiService apiService
 @inject IDialogService DialogService;
+@inject IToastService toastService;
+@inject ILocalStorageService localStorage;
 
 <MudDialog @bind-IsVisible="visible" Options="dialogOptions">
-	<TitleContent>
-		<MudText Typo="Typo.h6">
-			<MudIcon Icon="@Icons.Material.Filled.Delete" Class="mr-3" /> Delete Task
-		</MudText>
-	</TitleContent>
-	<DialogContent>
-		<MudAlert>Are you sure you want to delete this task?</MudAlert>
-	</DialogContent>
-	<DialogActions>
-		<MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="Delete" Class="px-10">DELETE</MudButton>
-	</DialogActions>
+    <TitleContent>
+        <MudText Typo="Typo.h6">
+            <MudIcon Icon="@Icons.Material.Filled.Delete" Class="mr-3" /> Delete Task
+        </MudText>
+    </TitleContent>
+    <DialogContent>
+        <MudAlert>Are you sure you want to delete this task?</MudAlert>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="Delete" Class="px-10">DELETE</MudButton>
+    </DialogActions>
 </MudDialog>
 <MudDropContainer T="BoardTask" @ref="_dropContainer" Items="@_tasks" ItemsSelector="@((item,column) => item.state.Name == column)" ItemDropped="TaskUpdated" Class="d-flex flex-row">
 	<ChildContent>
@@ -27,7 +29,8 @@
 		{
 			<MudPaper Elevation="0" Width="250px" MinHeight="400px" Class="pa-4 ma-2 d-flex flex-column mud-background-gray rounded-lg">
 				<MudToolBar DisableGutters="true">
-					<MudText Typo="Typo.subtitle1"><b>@item.Name</b></MudText>
+                    <MudText Typo="Typo.subtitle1"><b>@item.Name</b></MudText>
+                    <MudText>@</MudText>
 					<MudSpacer />
 					<MudMenu Icon="@Icons.Material.Rounded.MoreHoriz" AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight" ListClass="pa-2 d-flex flex-column" PopoverClass="mud-elevation-25">
 						<MudButton Size="Size.Small" Color="Color.Error" StartIcon="@Icons.Outlined.Delete" OnClick="@( () => DeleteSection(item))">Delete Section</MudButton>
@@ -85,12 +88,24 @@
 	</ItemRenderer>
 </MudDropContainer>
 @code {
-	private MudDropContainer<BoardTask>? _dropContainer;
+	//Drop container which can contain BoardTask objects in dropzones.
+    private MudDropContainer<BoardTask>? _dropContainer;
+	//List of users fetched populated from Api call on initialization.
+    private List<User> _users = new();
+	//List of states(sections) fetched from Api call, and populated by section creation through UI
+    private List<State> _sections = new();
+	//List of tasks fetched from api call, and populated by task creation through UI
+    private List<BoardTask> _tasks = new();
 
 	private bool _addSectionOpen;
-	private string _Data;
+    State newStateModel = new State();
 
-	private List<User> _users = new();
+    private BoardTask taskDelete;
+    private bool visible = false;
+
+    private DialogOptions dialogOptions = new() { FullWidth = true };
+    private string LSUserName;
+
 
 	private async Task OpenEditDialog(BoardTask task)
 	{
@@ -98,7 +113,7 @@
 		var options = new DialogOptions { CloseOnEscapeKey = true };
 		var dialog = DialogService.Show<EditTask>(task.name, parameters, options);
 		var result = await dialog.Result;
-		if (result.Cancelled)
+		if (result.Cancelled || result.Data == null)
 			return;
 		var returnedTask = (BoardTask)result.Data;
 		_tasks.Remove(task);
@@ -108,11 +123,11 @@
 
 	private async Task OpenCreateTaskDialog(State state)
 	{
-		var parameters = new DialogParameters { ["users"] = _users, ["states"] = _sections, ["selectedState"] = state };
+		var parameters = new DialogParameters { ["users"] = _users, ["selectedState"] = state };
 		var options = new DialogOptions { CloseOnEscapeKey = true };
 		var dialog = DialogService.Show<CreateTask>("New Task", parameters, options);
 		var result = await dialog.Result;
-		if (result.Cancelled)
+		if (result.Cancelled || result.Data == null)
 			return;
 		var returnedTask = (BoardTask)result.Data;
 		_tasks.Add(returnedTask);
@@ -121,18 +136,53 @@
 
 	protected override async Task OnInitializedAsync()
 	{
-		var data = await apiService.GetSections();
+	    try
+	    {
+	        var result = await localStorage.GetItemAsync<string>("UserName");
+	        LSUserName = result;
+	    }
+	    catch (Exception e)
+	    {
+	        Console.WriteLine(e);
+	        throw;
+	    }
+		var states = await apiService.GetSections();
 		var tasks = await apiService.GetTasks();
 		var users = await apiService.GetUsers();
-		_users.AddRange(users);
-		_tasks.AddRange(tasks);
-		_sections.AddRange(data);
+	    SetStates(states);
+		SetUsers(users);
+		SetTasks(tasks);
 	}
 
-	/* handling board events */
+    private void SetStates(List<State> states)
+    {
+        if (states != null && states.Any())
+        {
+            _sections.AddRange(states);
+        }
+    }
+    
+    private void SetUsers(List<User> users)
+    {
+        if (users != null && users.Any())
+        {
+            _users.AddRange(users);
+        }
+    }
+
+    private void SetTasks(List<BoardTask> tasks)
+    {
+        if (tasks != null && tasks.Any())
+        {
+            _tasks.AddRange(tasks);
+        }
+    }
+
+    /* handling board events */
 	private async Task TaskUpdated(MudItemDropInfo<BoardTask> info)
 	{
-		info.Item.StateID = _sections.FirstOrDefault(e => e.Name == info.DropzoneIdentifier).Id;
+	    await localStorage.SetItemAsync("UserName", "Benjamin Roesdal");
+	    info.Item.StateID = _sections.FirstOrDefault(e => e.Name == info.DropzoneIdentifier).Id;
 		info.Item.state.Name = info.DropzoneIdentifier;
 		await apiService.UpdateTask(info.Item);
 	}
@@ -142,18 +192,7 @@
 		await apiService.UpdateTask(task);
 	}
 
-	/* Setup for board  */
-	private List<State> _sections = new()
-	{
-	};
-
-	private List<BoardTask> _tasks = new()
-	{
-	};
-
-	State newStateModel = new State();
-
-	private async Task OnValidSectionSubmit(EditContext context)
+    private async Task OnValidSectionSubmit(EditContext context)
 	{
 		var stateResult = await apiService.CreateState(newStateModel);
 		_sections.Add(stateResult);
@@ -200,12 +239,9 @@
 		_dropContainer.Refresh();
 	}
 
-	private BoardTask taskDelete;
-	private bool visible = false;
 	private void DeleteDialog(BoardTask task)
 	{
 		taskDelete = task;
 		visible = true;
 	}
-	private DialogOptions dialogOptions = new() { FullWidth = true };
 }

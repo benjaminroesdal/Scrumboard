@@ -12,10 +12,12 @@ namespace BoardComponent
 	public class BoardService : IBoardService
 	{
 		private readonly IDbservice _dbService;
+		private readonly EmailService _emailService;
 
 		public BoardService(IDbservice dbService)
 		{
 			_dbService = dbService;
+			_emailService = new EmailService();
 		}
 		public List<UserModel> GetUsers()
 		{
@@ -38,13 +40,15 @@ namespace BoardComponent
 		public async Task<BoardTaskModel> CreateTask(BoardTaskModel model)
 		{
 			var result = await _dbService.CreateTask(model.CreateDao());
+			var taskModel = result.CreateModel();
+			await _emailService.SendEmail(taskModel);
 			return result.CreateModel();
 		}
 
 		public List<BoardTaskModel> GetTasks()
 		{
-			var result = _dbService.GetTasks();
-			return _dbService.GetTasks().CreateModelList();
+			var result = _dbService.GetTasks().CreateModelList();
+			return result;
 		}
 
 		public async Task UpdateTask(BoardTaskModel model)

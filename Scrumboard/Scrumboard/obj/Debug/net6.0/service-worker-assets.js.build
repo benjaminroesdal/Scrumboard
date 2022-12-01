@@ -1,7 +1,7 @@
 ﻿self.assetsManifest = {
   "assets": [
     {
-      "hash": "sha256-lDAEEaul32OkTANWkZgjgs4sFCsMdLsR5NJxrjVcXdo=",
+      "hash": "sha256-RVT1I3lM\/nP8zFqSUkR2eF9+kK95RJK5yGS6U6AqTBI=",
       "url": "css\/app.css"
     },
     {
@@ -61,11 +61,11 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-EUx9xHtj6Zk5KHnUbVYETjYIvTFhF3V1al+eI31kHMM=",
+      "hash": "sha256-G4xvgUN0qg+O++5bfObSngFndyCYFUACVVR3N40T+W8=",
       "url": "index.html"
     },
     {
-      "hash": "sha256-ma1zLhOCzFUh\/hbBPaOPYOBT1\/YCKeupnjUIi\/bi+uQ=",
+      "hash": "sha256-Ze6wnRcLxSdCIFDhvgjpX+fUm69ogBdFvjNG3sLbYDg=",
       "url": "manifest.json"
     },
     {
@@ -75,6 +75,10 @@
     {
       "hash": "sha256-TUMPN5NQoevzOdF9IAf3in+h7XdtRE8hzab9GJ0zikk=",
       "url": "Scrumboard.styles.css"
+    },
+    {
+      "hash": "sha256-6cGnZ9WDP6hzM+ZRdvG+94hYjOke+bTjbJ5Xyawsp0M=",
+      "url": "_framework\/Blazored.Toast.dll"
     },
     {
       "hash": "sha256-gbA+AujHUUBawZgIGQVo3vLdHlkaD7QLRM0dStUecSM=",
@@ -869,11 +873,11 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-DGnhKEn3i+lgFUd97CAqXD81GhUI88u5YLMq6Fp7WYY=",
+      "hash": "sha256-xmAztDVOEsXX1z5FPG\/M9OeziHXUUCz25ccwftEF0gQ=",
       "url": "_framework\/Scrumboard.dll"
     },
     {
-      "hash": "sha256-n1V1nv9yV3hmK3+anK5bMq2BuQ1puqwb5cNgXSsBbk4=",
+      "hash": "sha256-xEsi5uyXbxZiwaiFi0ycTAzGhSc+9KP4URIFuWvb9Zw=",
       "url": "_framework\/Scrumboard.pdb"
     },
     {
@@ -881,7 +885,7 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-qdxYZny19RhyVRMwmwntmcg6QWQTAcryxsPgK81eCRk=",
+      "hash": "sha256-Z63tfO638gZyZO4dAGNOYaapkPiX2Dtd9y6+PCuqBKk=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -891,7 +895,15 @@
     {
       "hash": "sha256-rSLqMQHO+xaq+NCakNWOhiM5bnyLNb4zrzbFS4ljy58=",
       "url": "_content\/MudBlazor\/MudBlazor.min.js"
+    },
+    {
+      "hash": "sha256-AaWqqM899f6WZE0W2NdQciewuA0QMpyAwixyqepNlDI=",
+      "url": "_content\/Blazored.Toast\/blazored-toast.css"
+    },
+    {
+      "hash": "sha256-EbeajiYBLaYVsWOJMs3fTyHck3SxwIPI6+PLFW0vMpM=",
+      "url": "_content\/Blazored.Toast\/blazored-toast.min.css"
     }
   ],
-  "version": "3NVaUNoR"
+  "version": "r9hBrCNp"
 };
