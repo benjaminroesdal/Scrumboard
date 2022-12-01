@@ -130,8 +130,6 @@ dist
 *.suo
 *.user
 _ReSharper.*
-bin
-obj
 packages
 
 node_modules
