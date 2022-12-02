@@ -9,7 +9,6 @@
 @inject IDialogService DialogService;
 @inject IToastService toastService;
 @inject ILocalStorageService localStorage;
-
 <MudDialog @bind-IsVisible="visible" Options="dialogOptions">
     <TitleContent>
         <MudText Typo="Typo.h6">
@@ -106,8 +105,7 @@
     private DialogOptions dialogOptions = new() { FullWidth = true };
     private string LSUserName;
 
-
-	private async Task OpenEditDialog(BoardTask task)
+    private async Task OpenEditDialog(BoardTask task)
 	{
 		var parameters = new DialogParameters { ["task"] = task, ["users"] = _users, ["states"] = _sections};
 		var options = new DialogOptions { CloseOnEscapeKey = true };
@@ -136,17 +134,7 @@
 
 	protected override async Task OnInitializedAsync()
 	{
-	    try
-	    {
-	        var result = await localStorage.GetItemAsync<string>("UserName");
-	        LSUserName = result;
-	    }
-	    catch (Exception e)
-	    {
-	        Console.WriteLine(e);
-	        throw;
-	    }
-		var states = await apiService.GetSections();
+	    var states = await apiService.GetSections();
 		var tasks = await apiService.GetTasks();
 		var users = await apiService.GetUsers();
 	    SetStates(states);
@@ -181,7 +169,6 @@
     /* handling board events */
 	private async Task TaskUpdated(MudItemDropInfo<BoardTask> info)
 	{
-	    await localStorage.SetItemAsync("UserName", "Benjamin Roesdal");
 	    info.Item.StateID = _sections.FirstOrDefault(e => e.Name == info.DropzoneIdentifier).Id;
 		info.Item.state.Name = info.DropzoneIdentifier;
 		await apiService.UpdateTask(info.Item);

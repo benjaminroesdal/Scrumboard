@@ -1,16 +1,45 @@
-﻿@inherits LayoutComponentBase
-<MudThemeProvider />
+﻿@using Blazored.LocalStorage
+@inherits LayoutComponentBase
+@inject ILocalStorageService localStorage;
 <MudDialogProvider />
 <MudSnackbarProvider />
 <div class="page">
     <main>
-        <div class="top-row">
+        <MudAppBar Fixed="false">
             <h1>ScrumBoard</h1>
-        </div>
-
+            <MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme" />
+            <MudSpacer/>
+            <MudIcon Icon="@Icons.Material.Filled.DarkMode"/>
+            <MudSwitch Checked="_isDarkMode" @bind-Value="_isDarkMode" CheckedChanged="() => SaveThemeToLocal()" Color="Color.Primary" Class="ma-4" T="bool"/>
+        </MudAppBar>
         <article class="content px-4">
             <BlazoredToasts />
             @Body
         </article>
     </main>
 </div>
+@code
+{
+    private MudTheme _theme = new();
+    private bool _isDarkMode;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var result = await localStorage.GetItemAsync<bool>("Theme");
+            _isDarkMode = result;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    private async Task SaveThemeToLocal()
+    {
+        _isDarkMode = !_isDarkMode;
+        await localStorage.SetItemAsync("Theme", _isDarkMode);
+    }
+}
