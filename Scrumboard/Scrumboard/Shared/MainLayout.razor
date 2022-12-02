@@ -3,11 +3,11 @@
 @inject ILocalStorageService localStorage;
 <MudDialogProvider />
 <MudSnackbarProvider />
+<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme" />
 <div class="page">
     <main>
         <MudAppBar Fixed="true">
             <h1>ScrumBoard</h1>
-            <MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme" />
             <MudSpacer/>
             <MudIcon Icon="@Icons.Material.Filled.DarkMode"/>
             <MudSwitch Checked="_isDarkMode" @bind-Value="_isDarkMode" CheckedChanged="() => SaveThemeToLocal()" Color="Color.Primary" Class="ma-4" T="bool"/>

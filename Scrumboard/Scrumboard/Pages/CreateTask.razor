@@ -11,7 +11,7 @@
     <DialogContent>
         <MudTextField @bind-Value="@task.name" Label="Task Name" ReadOnly="false" />
         <MudTextField @bind-Value="@task.description" Label="Description" ReadOnly="false" />
-        <MudSelect @bind-Value="reporter" Label="@task.reporter.userName" AnchorOrigin="Origin.BottomCenter">
+        <MudSelect @bind-Value="reporter" Label="@task.reporter.userName" AnchorOrigin="Origin.BottomCenter" Class="z-50">
             @foreach (var item in users)
             {
                 <MudSelectItem Value="@(item)">@item.userName</MudSelectItem>
