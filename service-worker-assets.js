@@ -61,7 +61,7 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-C0NGM+sH+X7g\/pksja++f1y4uXAvqLCg5IxPx5SmjfE=",
+      "hash": "sha256-tIftHH2FLSCsUTTdOPXuX3L0a70G9va8td4amSYU+Zo=",
       "url": "index.html"
     },
     {
@@ -105,7 +105,7 @@
       "url": "_framework\/icudt.dat"
     },
     {
-      "hash": "sha256-kY9SbeQzXvv1TRHZuio5XEb5bvTTPq1evq\/9Wjc+h1s=",
+      "hash": "sha256-PBPrYMcXhET\/BOWtiChhh5zZm5lO5S02K9tENi9YMfI=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -189,7 +189,7 @@
       "url": "_framework\/RestSharp.dll"
     },
     {
-      "hash": "sha256-BmdryrTsybjqA8UpLzhG9PiUXBdIZw2p1J+ZWtMoGGA=",
+      "hash": "sha256-54+7Xysx141wW0hN2YxDaDzd0qkTDgJ1tASnq6UuzUQ=",
       "url": "_framework\/Scrumboard.dll"
     },
     {
@@ -365,5 +365,5 @@
       "url": "_content\/MudBlazor\/MudBlazor.min.js"
     }
   ],
-  "version": "9S5yHNcm"
+  "version": "A9alJRWQ"
 };
