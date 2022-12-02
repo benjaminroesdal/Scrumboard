@@ -105,7 +105,7 @@
       "url": "_framework\/icudt.dat"
     },
     {
-      "hash": "sha256-LtK5WeFQ76zXc63Zjyht3hGxgg05gVzdE5QGt8F8ZSs=",
+      "hash": "sha256-466uEmH3H1SsTJ1DatLk152BW+580YZIHTBZHT1Qyyg=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -189,7 +189,7 @@
       "url": "_framework\/RestSharp.dll"
     },
     {
-      "hash": "sha256-kfBlutVZz1TyFiKPaE7yzh4\/x1xJ7xMxJ4l2sxl6TGY=",
+      "hash": "sha256-OaKFrFZ1+CnAUaoFp0x7KuIr2Wd2vgOFWZ18Xqba5Nc=",
       "url": "_framework\/Scrumboard.dll"
     },
     {
@@ -365,5 +365,5 @@
       "url": "_content\/MudBlazor\/MudBlazor.min.js"
     }
   ],
-  "version": "Vzs1ylFN"
+  "version": "JN\/C5lTl"
 };
