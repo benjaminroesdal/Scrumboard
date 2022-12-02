@@ -17,6 +17,7 @@ namespace DbComponent.Models
 		{
 		}
 
+		//To ensure easy and safe mapping between dao and model.
 		public UserModel(User user)
 		{
 			Id = user.ID;
@@ -24,22 +25,22 @@ namespace DbComponent.Models
 			Email = user.Email;
 		}
 
-		public static UserModel CreateModel(User user)
+		public static UserModel CreateModel(User dao)
 		{
-			return new UserModel(user);
+			return new UserModel(dao);
 		}
 	}
 
 	public static class UserModelExtensions
 	{
-		public static List<UserModel> CreateModelList(this ICollection<User> modelList)
+		public static List<UserModel> CreateModelList(this ICollection<User> daoList)
 		{
-			return modelList.Select(CreateDao).ToList();
+			return daoList.Select(CreateDao).ToList();
 		}
 
-		public static UserModel CreateDao(this User model)
+		public static UserModel CreateDao(this User dao)
 		{
-			return UserModel.CreateModel(model);
+			return UserModel.CreateModel(dao);
 		}
 	}
 }

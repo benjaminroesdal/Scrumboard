@@ -19,6 +19,10 @@ namespace DbComponent.Models
 		{
 		}
 
+		/// <summary>
+		/// To ensure safe and easy mapping between dao and model.
+		/// </summary>
+		/// <param name="state"></param>
 		public StateModel(State state)
 		{
 			Id = state.ID;

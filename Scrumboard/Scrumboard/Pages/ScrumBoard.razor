@@ -4,12 +4,10 @@
 @using Scrumboard.Models
 @using Scrumboard.Services
 @using Blazored.LocalStorage
-@inject HttpClient Http
 @inject BoardApiService apiService
 @inject IDialogService DialogService;
-@inject IToastService toastService;
-@inject ILocalStorageService localStorage;
-<MudDialog @bind-IsVisible="visible" Options="dialogOptions">
+
+<MudDialog @bind-IsVisible="deleteDialogVisible" Options="dialogOptions">
     <TitleContent>
         <MudText Typo="Typo.h6">
             <MudIcon Icon="@Icons.Material.Filled.Delete" Class="mr-3" /> Delete Task
@@ -29,12 +27,7 @@
 			<MudPaper Elevation="0" Width="250px" MinHeight="400px" Class="pa-4 ma-2 d-flex flex-column mud-background-gray rounded-lg">
 				<MudToolBar DisableGutters="true">
                     <MudText Typo="Typo.subtitle1"><b>@item.Name</b></MudText>
-                    <MudText>@LSUserName</MudText>
-					<MudSpacer />
-					<MudMenu Icon="@Icons.Material.Rounded.MoreHoriz" AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight" ListClass="pa-2 d-flex flex-column" PopoverClass="mud-elevation-25">
-						<MudButton Size="Size.Small" Color="Color.Error" StartIcon="@Icons.Outlined.Delete" OnClick="@( () => DeleteSection(item))">Delete Section</MudButton>
-					</MudMenu>
-				</MudToolBar>
+                </MudToolBar>
 				<MudDropZone T="BoardTask" Identifier="@item.Name" Class="mud-height-full" />
 				@if (@item.AcceptsTaskCreate)
 				{
@@ -88,24 +81,32 @@
 </MudDropContainer>
 @code {
 	//Drop container which can contain BoardTask objects in dropzones.
-    private MudDropContainer<BoardTask>? _dropContainer;
+	private MudDropContainer<BoardTask>? _dropContainer;
 	//List of users fetched populated from Api call on initialization.
-    private List<User> _users = new();
+	private List<User> _users = new();
 	//List of states(sections) fetched from Api call, and populated by section creation through UI
-    private List<State> _sections = new();
+	private List<State> _sections = new();
 	//List of tasks fetched from api call, and populated by task creation through UI
-    private List<BoardTask> _tasks = new();
+	private List<BoardTask> _tasks = new();
 
+	//Boolean to control the visibily of section creation window.
 	private bool _addSectionOpen;
-    State newStateModel = new State();
+	//property to hold state object to be created before api call.
+	State newStateModel = new State();
 
-    private BoardTask taskDelete;
-    private bool visible = false;
+	//Task to delete is stored here on select.
+	private BoardTask taskDelete;
+	//boolean to control whether or not the delete dialog window is visible.
+	private bool deleteDialogVisible = false;
 
-    private DialogOptions dialogOptions = new() { FullWidth = true };
-    private string LSUserName;
+	private DialogOptions dialogOptions = new() { FullWidth = true };
 
-    private async Task OpenEditDialog(BoardTask task)
+	/// <summary>
+	/// Opens edit dialog and sends selected dialog, and users and states as parameters to the dialog component.
+	/// in case of cancel or null it returns, otherwise it removed old task and adds the newly updated task and refreshed drop container.
+	/// </summary>
+	/// <param name="task">Selected task to edit.</param>
+	private async Task OpenEditDialog(BoardTask task)
 	{
 		var parameters = new DialogParameters { ["task"] = task, ["users"] = _users, ["states"] = _sections};
 		var options = new DialogOptions { CloseOnEscapeKey = true };
@@ -119,6 +120,11 @@
 		_dropContainer?.Refresh();
 	}
 
+	/// <summary>
+	/// Opens create task dialog sends users and selected state as paramters to the create task dialog component.
+	/// In case of cancel or null it returns, otherwise it takes the task from dialog return data, and adds it to the task list and refreshed container.
+	/// </summary>
+	/// <param name="state">State for task to be created in.</param>
 	private async Task OpenCreateTaskDialog(State state)
 	{
 		var parameters = new DialogParameters { ["users"] = _users, ["selectedState"] = state };
@@ -132,54 +138,84 @@
 		_dropContainer?.Refresh();
 	}
 
+	/// <summary>
+	/// Sets States, tasks and users lists after receiving the data from backend.
+	/// </summary>
+	/// <returns></returns>
 	protected override async Task OnInitializedAsync()
 	{
-	    var states = await apiService.GetSections();
+		var states = await apiService.GetSections();
 		var tasks = await apiService.GetTasks();
 		var users = await apiService.GetUsers();
-	    SetStates(states);
+		SetStates(states);
 		SetUsers(users);
 		SetTasks(tasks);
 	}
 
-    private void SetStates(List<State> states)
-    {
-        if (states != null && states.Any())
-        {
-            _sections.AddRange(states);
-        }
-    }
-    
-    private void SetUsers(List<User> users)
-    {
-        if (users != null && users.Any())
-        {
-            _users.AddRange(users);
-        }
-    }
+	/// <summary>
+	/// Checks if data is null or empty, and adds to _sections if it's not
+	/// </summary>
+	/// <param name="states">States to add.</param>
+	private void SetStates(List<State> states)
+	{
+		if (states != null && states.Any())
+		{
+			_sections.AddRange(states);
+		}
+	}
 
-    private void SetTasks(List<BoardTask> tasks)
-    {
-        if (tasks != null && tasks.Any())
-        {
-            _tasks.AddRange(tasks);
-        }
-    }
+	/// <summary>
+	/// Checks if data is null or empty, and adds to users if it's not
+	/// </summary>
+	/// <param name="users">users to add.</param>
+	private void SetUsers(List<User> users)
+	{
+		if (users != null && users.Any())
+		{
+			_users.AddRange(users);
+		}
+	}
 
-    /* handling board events */
+	/// <summary>
+	/// Checks if data is null or empty, and adds to tasks if it's not
+	/// </summary>
+	/// <param name="tasks">Tasks to add.</param>
+	private void SetTasks(List<BoardTask> tasks)
+	{
+		if (tasks != null && tasks.Any())
+		{
+			_tasks.AddRange(tasks);
+		}
+	}
+
+	/// <summary>
+	/// Called when a task is dropped into a dropzone, uses dropzone identifier to find the specific state in the _sections list.
+	/// And maps the task which was dropped state ID to the state is was dropped in.
+	/// </summary>
+	/// <param name="info">Drop info provide when item is dropped in a dropzone.</param>
 	private async Task TaskUpdated(MudItemDropInfo<BoardTask> info)
 	{
-	    info.Item.StateID = _sections.FirstOrDefault(e => e.Name == info.DropzoneIdentifier).Id;
+		info.Item.StateID = _sections.FirstOrDefault(e => e.Name == info.DropzoneIdentifier).Id;
 		info.Item.state.Name = info.DropzoneIdentifier;
 		await apiService.UpdateTask(info.Item);
 	}
 
+	/// <summary>
+	/// Calls service to update provided task
+	/// </summary>
+	/// <param name="task">Task to update.</param>
+	/// <returns></returns>
 	public async Task UpdateTask(BoardTask task)
 	{
 		await apiService.UpdateTask(task);
 	}
 
-    private async Task OnValidSectionSubmit(EditContext context)
+
+	/// <summary>
+	/// Called when a section is submitted, calls service to save new state to backend
+	/// when saved then orders list based on priority set on each State object.
+	/// </summary>
+	private async Task OnValidSectionSubmit()
 	{
 		var stateResult = await apiService.CreateState(newStateModel);
 		_sections.Add(stateResult);
@@ -188,47 +224,33 @@
 		_addSectionOpen = false;
 	}
 
+	/// <summary>
+	/// Called when button press to show new section creation content.
+	/// </summary>
 	private void OpenAddNewSection()
 	{
 		_addSectionOpen = true;
 	}
 
-    private void DeleteSection(State section)
-	{
-		if (_sections.Count == 1)
-		{
-			_tasks.Clear();
-			_sections.Clear();
-		}
-		else
-		{
-			int newIndex = _sections.IndexOf(section) - 1;
-			if (newIndex < 0)
-			{
-				newIndex = 0;
-			}
-
-			_sections.Remove(section);
-
-			var tasks = _tasks.Where(x => x.state.Name == section.Name);
-			foreach (var item in tasks)
-			{
-				item.state.Name = _sections[newIndex].Name;
-			}
-		}
-	}
-
+	/// <summary>
+	/// Called by dialog when pressed to delete selected task from backend, and refreshed dropcontainer.
+	/// </summary>
 	private async void Delete()
 	{
-		visible = false;
+		deleteDialogVisible = false;
 		await apiService.DeleteTask(taskDelete);
 		_tasks.Remove(taskDelete);
 		_dropContainer.Refresh();
 	}
 
+	/// <summary>
+	/// Called when delete icon is pressed, and saves task which icon was pressed on to later be used to delete seleced task.
+	/// Sets visibility boolean to true to view dialog.
+	/// </summary>
+	/// <param name="task"></param>
 	private void DeleteDialog(BoardTask task)
 	{
 		taskDelete = task;
-		visible = true;
+		deleteDialogVisible = true;
 	}
 }

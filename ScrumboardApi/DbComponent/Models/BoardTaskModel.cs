@@ -25,19 +25,24 @@ namespace DbComponent.Models
 		{
 		}
 
-		private BoardTaskModel(BoardTask task)
+		/// <summary>
+		/// This is created strictly as an easy and safe way to ensure correct DAO/Model creation before the dao object and model object.
+		/// There is also an empty constructor to ensure the created of this model is not dependent on the dao model.
+		/// </summary>
+		/// <param name="dao">BoardTask dao model.</param>
+		private BoardTaskModel(BoardTask dao)
 		{
-			Name = task.Name;
-			TaskID = task.TaskID;
-			StateID = task.StateID;
-			AssigneeID = task.AssigneeID;
-			ReporterID = task.ReporterID;
-			Description = task.Description;
-			OriginalEstimate = task.OriginalEstimate;
-			Priority = task.Priority;
-			State = StateModel.CreateModel(task?.State);
-			Assignee = UserModel.CreateModel(task.Assignee);
-			Reporter = UserModel.CreateModel(task.Reporter);
+			Name = dao.Name;
+			TaskID = dao.TaskID;
+			StateID = dao.StateID;
+			AssigneeID = dao.AssigneeID;
+			ReporterID = dao.ReporterID;
+			Description = dao.Description;
+			OriginalEstimate = dao.OriginalEstimate;
+			Priority = dao.Priority;
+			State = StateModel.CreateModel(dao?.State);
+			Assignee = UserModel.CreateModel(dao.Assignee);
+			Reporter = UserModel.CreateModel(dao.Reporter);
 		}
 
 		public static BoardTaskModel CreateModel(BoardTask task)
@@ -48,14 +53,14 @@ namespace DbComponent.Models
 
 	public static class BoardTaskModelExtensions
 	{
-		public static List<BoardTaskModel> CreateModelList(this ICollection<BoardTask> modelList)
+		public static List<BoardTaskModel> CreateModelList(this ICollection<BoardTask> daoList)
 		{
-			return modelList.Select(CreateModel).ToList();
+			return daoList.Select(CreateModel).ToList();
 		}
 
-		public static BoardTaskModel CreateModel(this BoardTask task)
+		public static BoardTaskModel CreateModel(this BoardTask dao)
 		{
-			return BoardTaskModel.CreateModel(task);
+			return BoardTaskModel.CreateModel(dao);
 		}
 	}
 }

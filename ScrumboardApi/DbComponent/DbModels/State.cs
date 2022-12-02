@@ -22,6 +22,7 @@ namespace DbComponent.DbModels
         {
         }
 
+        //To ensure easy and safe mapping between dao and model.
         public State(StateModel model)
         {
 	        ID = model.Id;

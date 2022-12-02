@@ -28,6 +28,10 @@ namespace DbComponent.DbModels
         {
         }
 
+        /// <summary>
+        /// Used to ensure safe and easy mapping between dao and model.
+        /// </summary>
+        /// <param name="model"></param>
         public BoardTask(BoardTaskModel model)
         {
             Name = model.Name;
@@ -47,7 +51,7 @@ namespace DbComponent.DbModels
     }
 
     public static class BoardTasksExtensions {
-	    public static List<BoardTask> CreateModelList(this ICollection<BoardTaskModel> modelList)
+	    public static List<BoardTask> CreateDaoList(this ICollection<BoardTaskModel> modelList)
 	    {
 		    return modelList.Select(CreateDao).ToList();
 	    }

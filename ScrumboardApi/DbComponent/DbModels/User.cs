@@ -21,6 +21,7 @@ namespace DbComponent.DbModels
         {
         }
 
+        //To ensure easy and safe mapping between dao and model.
         public User(UserModel model)
         {
 	        ID = model.Id;
@@ -36,7 +37,7 @@ namespace DbComponent.DbModels
 
     public static class UserExtensions
     {
-        public static List<User> CreateModelList(this ICollection<UserModel> modelList)
+        public static List<User> CreateDaoList(this ICollection<UserModel> modelList)
         {
             return modelList.Select(CreateDao).ToList();
         }

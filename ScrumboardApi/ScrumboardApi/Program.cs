@@ -42,6 +42,7 @@ static void InitializeDb(ScrumBoardContext context)
     context.Database.EnsureCreated();
 }
 
+//Created DB with EF if DB doesn't already exist.
 static void CreateDbIfNotExists(IServiceProvider host)
 {
     using (var scope = host.CreateScope())

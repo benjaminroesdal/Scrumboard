@@ -45,25 +45,28 @@
 @code {
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
 
+    //task provided as parameter from component opening this dialog.
     [Parameter] public BoardTask task { get; set; } = new BoardTask();
+    //list of users as parameter from component opening this dialog.
     [Parameter] public List<User> users { get; set; } = new List<User>();
+    //list of states as parameter from component opening this dialog.
     [Parameter] public List<State> states { get; set; } = new List<State>();
 
+    //Selected user object from list select.
     private User reporter;
+    //Selected user object from list select.
     private User assignee;
+    //Selected state object from list select.
     private State state;
 
+    //Called on cancel click or outside of dialog box. returns Cancel code to caller.
     private void Cancel()
     {
         MudDialog.Cancel();
     }
 
-    private async void Delete()
-    {
-        await apiService.DeleteTask(task);
-        MudDialog.Close(DialogResult.Ok("Delete"));
-    }
-
+    //Maps needed values from user and state object to a task object, and calls API to update task in backend.
+    //Closes dialog with an OK result and returns the updated task.
     private async Task SaveChanges()
     {
         if(reporter != null)

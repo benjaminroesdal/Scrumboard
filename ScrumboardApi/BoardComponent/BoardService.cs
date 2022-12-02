@@ -41,7 +41,7 @@ namespace BoardComponent
 		{
 			var result = await _dbService.CreateTask(model.CreateDao());
 			var taskModel = result.CreateModel();
-			await _emailService.SendEmail(taskModel);
+			// await _emailService.SendEmail(taskModel);
 			return result.CreateModel();
 		}
 

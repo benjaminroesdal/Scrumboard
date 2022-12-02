@@ -18,6 +18,10 @@ namespace Scrumboard.Services
             _toastService = toastService;
         }
 
+        /// <summary>
+        /// Gets users from API - in case of error codes from the backend, a toast will be shown describing the error.
+        /// </summary>
+        /// <returns>Returns list of users</returns>
         public async Task<List<User>> GetUsers()
         {
             List<User> users = new List<User>();
@@ -33,6 +37,10 @@ namespace Scrumboard.Services
             return users;
         }
 
+        /// <summary>
+        /// Gets states from DB and shows toast in case of error codes.
+        /// </summary>
+        /// <returns>List of states</returns>
 		public async Task<List<State>> GetSections()
         {
             List<State> states = new List<State>();
@@ -47,6 +55,10 @@ namespace Scrumboard.Services
             return states;
         }
 
+        /// <summary>
+        /// Gets tasks from api and shows toast with error information.
+        /// </summary>
+        /// <returns>List of tasks.</returns>
         public async Task<List<BoardTask>> GetTasks()
         {
             List<BoardTask> tasks = new List<BoardTask>();
@@ -61,6 +73,12 @@ namespace Scrumboard.Services
             return tasks;
         }
 
+        /// <summary>
+        /// Call backend to create a task and waits to receive saved task as response to ensure data integrity in frontend
+        /// Shows toast with error information in case of error codes.
+        /// </summary>
+        /// <param name="task"></param>
+        /// <returns>Task saved to DB returned by API.</returns>
         public async Task<BoardTask> CreateTask(BoardTask task)
         {
             BoardTask taskResult = new BoardTask();
@@ -76,6 +94,10 @@ namespace Scrumboard.Services
             return taskResult;
         }
 
+        /// <summary>
+        /// Calls API to update provided task
+        /// </summary>
+        /// <param name="task">Task to update</param>
         public async Task UpdateTask(BoardTask task)
         {
             try
@@ -88,6 +110,10 @@ namespace Scrumboard.Services
             }
         }
 
+        /// <summary>
+        /// Calls API to delete provided task
+        /// </summary>
+        /// <param name="task">Task to delete</param>
         public async Task DeleteTask(BoardTask task)
         {
             try
@@ -100,6 +126,11 @@ namespace Scrumboard.Services
             }
         }
 
+        /// <summary>
+        /// Calls api to create provided state
+        /// </summary>
+        /// <param name="state">State to create</param>
+        /// <returns>Created state returned from backend to ensure data integrity in frontend.</returns>
         public async Task<State> CreateState(State state)
         {
             State stateRes = new State();

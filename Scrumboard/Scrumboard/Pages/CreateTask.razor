@@ -40,6 +40,7 @@
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
 
     public BoardTask task { get; set; } = new BoardTask() {reporter = new User(), assignee = new User(), state = new State() };
+    //Parameters parsed by component calling this dialog component.
     [Parameter] public List<User> users { get; set; } = new List<User>();
     [Parameter] public State selectedState { get; set; } = new State();
 
@@ -60,7 +61,6 @@
         if (selectedState != null)
             task.state = selectedState;
             task.StateID = selectedState.Id;
-        //In a real world scenario this bool would probably be a service to delete the item from api/database
         var resp = await apiService.CreateTask(task);
         MudDialog.Close(DialogResult.Ok(resp));
     }

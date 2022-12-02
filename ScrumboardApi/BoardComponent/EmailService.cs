@@ -11,6 +11,10 @@ namespace BoardComponent
 {
 	public class EmailService
 	{
+		/// <summary>
+		/// Uses outlook SMTP server to send email to assigned user of task.
+		/// </summary>
+		/// <param name="task">task which was assigned to user.</param>
 		public async Task SendEmail(BoardTaskModel task)
 		{
 			var smtpClient = new SmtpClient("smtp-mail.outlook.com")

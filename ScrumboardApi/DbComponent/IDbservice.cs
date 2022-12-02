@@ -17,7 +17,5 @@ namespace DbComponent
 		List<BoardTask> GetTasks();
 		Task UpdateTask(BoardTask task);
 		Task DeteleTask(BoardTask task);
-
-
 	}
 }
