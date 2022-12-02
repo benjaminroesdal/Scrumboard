@@ -1,7 +1,7 @@
 ﻿self.assetsManifest = {
   "assets": [
     {
-      "hash": "sha256-ovJrA16sdIhPSvluPEF5gqo9yklfHYE9xPHvuC3TUAM=",
+      "hash": "sha256-1\/e0XfvtCgnpTXibNVprPCQEI+VHJdLSpDrvZN2KHI8=",
       "url": "css\/app.css"
     },
     {
@@ -105,7 +105,7 @@
       "url": "_framework\/icudt.dat"
     },
     {
-      "hash": "sha256-PBPrYMcXhET\/BOWtiChhh5zZm5lO5S02K9tENi9YMfI=",
+      "hash": "sha256-B8m7BMnz8SZeRTNhpljlDKzM3iPrTjcm0mkXB5cTsJU=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -177,7 +177,7 @@
       "url": "_framework\/Microsoft.JSInterop.WebAssembly.dll"
     },
     {
-      "hash": "sha256-XZrzLlmXbjgWH1hSK8BX\/fUu73F9q5C2DrjrGOMu\/yY=",
+      "hash": "sha256-SFzoUYyCDZoqHsS4ATgHEKIkEp5NGUrhk0NhSfPQxKU=",
       "url": "_framework\/MudBlazor.dll"
     },
     {
@@ -189,7 +189,7 @@
       "url": "_framework\/RestSharp.dll"
     },
     {
-      "hash": "sha256-54+7Xysx141wW0hN2YxDaDzd0qkTDgJ1tASnq6UuzUQ=",
+      "hash": "sha256-7PCaLWoBEqJ+BXQGzQLNZ2Jj+cogbmuxUVh\/mFC\/jUw=",
       "url": "_framework\/Scrumboard.dll"
     },
     {
@@ -365,5 +365,5 @@
       "url": "_content\/MudBlazor\/MudBlazor.min.js"
     }
   ],
-  "version": "A9alJRWQ"
+  "version": "BHATQGve"
 };
